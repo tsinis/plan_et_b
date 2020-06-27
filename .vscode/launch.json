@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Chrome",
+            "type": "dart",
+            "request": "launch",
+            "flutterMode": "debug",
+        },
+        {
+            "name": "Skia Chrome",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define=FLUTTER_WEB_USE_SKIA=true",
+                "--dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true"
+            ]
+        }
+    ]
+}

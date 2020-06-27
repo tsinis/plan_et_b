@@ -1,0 +1,34 @@
+name: plan_et_b
+description: Indie philosophical game made in Flutter for Hack20 Hackathon.
+
+environment:
+  sdk: ">2.8.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # flutter_localizations:
+  #       sdk: flutter
+  # auto_size_text:
+  flare_flutter: ^2.0.3
+
+dev_dependencies:
+  # flutter_test:
+  #   sdk: flutter
+  pedantic: any
+  effective_dart: any
+
+# flutter_intl:
+#   enabled: true
+
+flutter:
+  uses-material-design: false
+
+  assets:
+    - assets/foreground.flr
+    - assets/background.flr
+
+  # fonts:
+  #   - family: MyIcon
+  #     fonts:
+  #       - asset: third-party/fonts/Icons/MyIcon.ttf
