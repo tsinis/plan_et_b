@@ -9,8 +9,9 @@ dependencies:
     sdk: flutter
   # flutter_localizations:
   #       sdk: flutter
-  # auto_size_text:
+  auto_size_text: any
   flare_flutter: ^2.0.3
+  assets_audio_player: 2.0.6+4
 
 dev_dependencies:
   # flutter_test:
@@ -25,10 +26,12 @@ flutter:
   uses-material-design: false
 
   assets:
-    - assets/foreground.flr
-    - assets/background.flr
+    - assets/animations/foreground.flr
+    - assets/animations/background.flr
+    - assets/audio/Caves.ogg
+    - assets/audio/misc_12.ogg
 
-  # fonts:
-  #   - family: MyIcon
-  #     fonts:
-  #       - asset: third-party/fonts/Icons/MyIcon.ttf
+  fonts:
+    - family: Seldom Scene
+      fonts:
+        - asset: third-party/fonts/Seldom Scene/Seldom Scene.otf

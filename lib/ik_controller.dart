@@ -24,6 +24,7 @@ class IKController implements FlareController {
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_detectTime >= _detect.duration) {
       _detectTime = 0;
+      RivePseudo3DRenderObject.score++;
       detecting = false;
     } else if (detecting) {
       _detectTime += elapsed;
