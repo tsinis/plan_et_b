@@ -55,12 +55,12 @@ class RivePseudo3DWidget extends LeafRenderObjectWidget {
 class RivePseudo3DRenderObject extends FlareRenderBox {
   static ActorNode ikTarget;
 
-  double _animationTime = 0.0, point, turn, pseudo3DDepth;
+  double _animationTime = 0, point, turn, pseudo3DDepth;
   Pseudo3DArtboard _artboard;
   final AssetProvider _hudAnimation =
       AssetFlare(bundle: rootBundle, name: 'assets/foreground.flr');
 
-  ActorAnimation _backgroundLoop, _loadUI;
+  ActorAnimation _foregroundLoop, _loadUI;
 
   @override
   bool get isPlaying => true;
@@ -75,8 +75,8 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
     }
 
     _animationTime += elapsed;
-    _backgroundLoop?.apply(
-        _animationTime % _backgroundLoop.duration, _artboard, 1.0);
+    _foregroundLoop?.apply(
+        _animationTime % _foregroundLoop.duration, _artboard, 1.0);
     _loadUI?.apply(_animationTime, _artboard, 1.0);
     _artboard.setPseudo3D(point, turn, pseudo3DDepth);
     _artboard.advance(elapsed);
@@ -90,7 +90,7 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
         Pseudo3DArtboard artboard = Pseudo3DActor.instanceArtboard(_actor);
         artboard.initializeGraphics();
         _artboard = artboard;
-        _backgroundLoop = _artboard.getAnimation('background');
+        _foregroundLoop = _artboard.getAnimation('foreground');
         _loadUI = _artboard.getAnimation('load_ui');
         ikTarget = _artboard.getNode('view_control');
         _artboard.advance(0.0);

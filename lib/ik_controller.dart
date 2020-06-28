@@ -13,12 +13,18 @@ class IKController implements FlareController {
   ActorNode _ikTarget;
   Offset _screenTouch;
   Mat2D _viewTransform;
+  ActorAnimation _backgroundLoop;
+  double _animationTime = 0;
 
   @override
   ValueNotifier<bool> isActive;
 
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
+    _animationTime += elapsed;
+    _backgroundLoop?.apply(
+        _animationTime % _backgroundLoop.duration, artboard, 1.0);
+
     if (_ikTarget == null || _screenTouch == null || _viewTransform == null) {
       return false;
     }
@@ -48,8 +54,10 @@ class IKController implements FlareController {
   }
 
   @override
-  void initialize(FlutterActorArtboard _artboard) =>
-      _ikTarget = _artboard.getNode('view_control');
+  void initialize(FlutterActorArtboard _artboard) {
+    _ikTarget = _artboard.getNode('view_control');
+    _backgroundLoop = _artboard.getAnimation('background');
+  }
 
   @override
   void setViewTransform(Mat2D viewTransform) => _viewTransform = viewTransform;
