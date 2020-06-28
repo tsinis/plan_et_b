@@ -1,7 +1,9 @@
 import 'package:flare_flutter/flare_actor.dart' show FlareActor;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 
 import 'ik_controller.dart';
+import 'platform_detector.dart';
 import 'pseudo3D_widget.dart';
 
 class MainScreen extends StatefulWidget {
@@ -42,14 +44,16 @@ class _MyMainScreenState extends State<MainScreen>
     Size _size = MediaQuery.of(context).size;
     return Container(
       color: const Color(0xFF000000),
-      child: GestureDetector(
-        onPanUpdate: (DragUpdateDetails _drag) {
-          _point += _drag.delta.dy * (1 / _size.height);
-          _turn -= _drag.delta.dx * (1 / _size.width);
-          setState(() => _ikController
-              .moveAim(Offset(_drag.localPosition.dx, _drag.localPosition.dy)));
+      child: GameControls(
+        onTap: () => setState(() => _ikController.detecting = true),
+        onHover: (dynamic _moveOver) {
+          _point += _moveOver.delta.dy * (0.1 / _size.height) as num;
+          _turn -= _moveOver.delta.dx * (0.1 / _size.width) as num;
+          setState(() => _ikController.moveAim(Offset(
+              (_moveOver.localPosition.dx) as double,
+              (_moveOver.localPosition.dy) as double)));
         },
-        onPanEnd: (DragEndDetails _details) {
+        onExit: (dynamic _details) {
           _pseudo3D = Tween<double>(
             begin: 1.0,
             end: 0.0,
@@ -65,7 +69,7 @@ class _MyMainScreenState extends State<MainScreen>
           setState(() =>
               _ikController.moveAim(Offset(_size.width / 2, _size.height / 2)));
         },
-        onPanStart: (DragStartDetails _details) {
+        onEnter: (dynamic _details) {
           _pseudo3D = null;
           _depth = Tween<double>(
             begin: 1.0,
@@ -80,9 +84,7 @@ class _MyMainScreenState extends State<MainScreen>
           children: [
             Positioned.fill(
               child: FlareActor('assets/background.flr',
-                  animation: 'game',
-                  isPaused: false,
-                  controller: _ikController),
+                  animation: 'game', controller: _ikController),
             ),
             Positioned.fill(
               child: RivePseudo3DWidget(

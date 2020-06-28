@@ -10,17 +10,26 @@ import 'package:flare_dart/math/vec2d.dart' show Vec2D;
 import 'pseudo3D_widget.dart';
 
 class IKController implements FlareController {
+  bool detecting = false;
   ActorNode _ikTarget;
   Offset _screenTouch;
   Mat2D _viewTransform;
-  ActorAnimation _backgroundLoop;
-  double _animationTime = 0;
+  ActorAnimation _backgroundLoop, _detect;
+  double _animationTime = 0, _detectTime = 0;
 
   @override
   ValueNotifier<bool> isActive;
 
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
+    if (_detectTime >= _detect.duration) {
+      _detectTime = 0;
+      detecting = false;
+    } else if (detecting) {
+      _detectTime += elapsed;
+      _detect?.apply(_detectTime, artboard, 1.0);
+    }
+
     _animationTime += elapsed;
     _backgroundLoop?.apply(
         _animationTime % _backgroundLoop.duration, artboard, 1.0);
@@ -57,6 +66,7 @@ class IKController implements FlareController {
   void initialize(FlutterActorArtboard _artboard) {
     _ikTarget = _artboard.getNode('view_control');
     _backgroundLoop = _artboard.getAnimation('background');
+    _detect = _artboard.getAnimation('detect');
   }
 
   @override
