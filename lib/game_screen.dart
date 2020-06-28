@@ -43,7 +43,7 @@ class _MyMainScreenState extends State<MainScreen>
     _sfxAudioPlayer.open(
       Audio('assets/audio/misc_12.ogg'),
       autoStart: true,
-      volume: 0.2,
+      volume: 0.5,
       playInBackground: PlayInBackground.disabledRestoreOnForeground,
       respectSilentMode: true,
       showNotification: false,

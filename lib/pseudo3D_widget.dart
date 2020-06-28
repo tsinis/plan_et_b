@@ -78,12 +78,12 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
           content: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: 'You have checked $score/20 planets but:\n\n',
+              text: 'You have checked $score/12 planets but:\n\n',
               style: MainScreen.textStyle(),
               children: <TextSpan>[
                 TextSpan(
                     text:
-                        "There is no planet B.\nSo let's take care of this one.\n\n",
+                        "There is no planet B!\nSo let's take care of this one.\n\n",
                     style: MainScreen.textStyle(const Color(0xFFffdd00), 30.0)),
                 TextSpan(
                     text: 'Press F5 to play again',

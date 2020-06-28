@@ -1,5 +1,5 @@
 name: plan_et_b
-description: Indie philosophical game made in Flutter for Hack20 Hackathon.
+description: Indie philosophical PWA game made in Flutter for Hack20 Hackathon.
 
 environment:
   sdk: ">2.8.0"
@@ -28,7 +28,7 @@ flutter:
   assets:
     - assets/animations/foreground.flr
     - assets/animations/background.flr
-    - assets/audio/Caves.ogg
+    - assets/audio/cubedcanada+invaderloop.mp3
     - assets/audio/misc_12.ogg
 
   fonts:

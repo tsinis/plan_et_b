@@ -1,12 +1,12 @@
 {
-    "name": "plan_et_b",
-    "short_name": "plan_et_b",
+    "name": "Planet B Game",
+    "short_name": "plan-et-b",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#4F3747",
+    "theme_color": "#4F3747",
+    "description": "Hack20 Flutter project.",
+    "orientation": "landscape-primary",
     "prefer_related_applications": false,
     "icons": [
         {

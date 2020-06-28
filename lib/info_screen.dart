@@ -13,14 +13,11 @@ class InfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _musicAudioPlayer.open(
-      Audio('assets/audio/Caves.ogg'),
-      autoStart: false,
-      volume: 0.05,
-      playInBackground: PlayInBackground.disabledRestoreOnForeground,
-      respectSilentMode: true,
-      showNotification: false,
-    );
+    _musicAudioPlayer.open(Audio('assets/audio/cubedcanada+invaderloop.mp3'),
+        autoStart: false,
+        volume: 0.4,
+        respectSilentMode: true,
+        showNotification: false);
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: Center(
@@ -69,9 +66,10 @@ class InfoScreen extends StatelessWidget {
                             MainScreen.textStyle(const Color(0xFFffdd00), 30.0),
                         children: [
                           TextSpan(
-                            style: MainScreen.textStyle(),
+                            style:
+                                MainScreen.textStyle(const Color(0xFFc0c0c0)),
                             text:
-                                'Year 2077... world is divided. Since 2020, huge changes have taken place in a social order. Countries that lost their geo-political influence due to internal problems, stopped making efforts to change the climate on Earth. It becomes impossible to live here, you have to find a new planet (Planet B). Sadly, you have a limited amount of fuel.',
+                                "2077y ...the world is divided. Since 2020, there have been tremendous changes in social order. The countries have lost their geopolitical influence because of internal problems, so they have ceased efforts to change the climate on Earth. It's becoming impossible to live here, someone has to look for a new planet (Planet B). Unfortunately, you have a limited amount of fuel.",
                           )
                         ],
                       ),
@@ -92,7 +90,7 @@ class InfoScreen extends StatelessWidget {
                   ),
                   Flexible(
                     child: AutoSizeText(
-                      "Move aim to look around, press to determine a planet's suitability for life. There is a 20 planets to check.",
+                      "Move aim to look around, press to determine a planet's suitability for life. There is a dozen planets to check.",
                       style: MainScreen.textStyle(),
                       maxLines: 3,
                       textAlign: TextAlign.center,
