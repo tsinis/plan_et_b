@@ -129,7 +129,7 @@ You can find binaries for Android and Web in [Releases](https://github.com/tsini
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | Assets Audio Player |
 | 3rd-party Dependency package | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
-| 3rd-party Dependency version | [2.0.6+4](https://github.com/florent37/Flutter-AssetsAudioPlayer) |
+| 3rd-party Dependency version | [2.0.6+4](https://github.com/florent37/Flutter-AudioPlayer) |
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | [Rive](https://rive.app) (ex Flare) |
 | 3rd-party Dependency package | [flare_flutter](https://pub.dev/packages/flare_flutter) |

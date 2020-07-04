@@ -41,9 +41,9 @@ class _MyMainScreenState extends State<MainScreen>
   void initState() {
     super.initState();
     _sfxAudioPlayer.open(
-      Audio('assets/audio/misc_12.ogg'),
+      Audio('assets/audio/beam.wav'),
       autoStart: true,
-      volume: 0.5,
+      volume: 0.3,
       playInBackground: PlayInBackground.disabledRestoreOnForeground,
       respectSilentMode: true,
       showNotification: false,

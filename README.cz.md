@@ -129,7 +129,7 @@ Binární spouštěcí soubory najdete v části [Releases](https://github.com/t
 | Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | Assets Audio Player |
 | Balíček závislosti třetí strany | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
-| Verze závislosti třetí strany | [2.0.6+4](https://github.com/florent37/Flutter-AssetsAudioPlayer) |
+| Verze závislosti třetí strany | [2.0.6+4](https://github.com/florent37/Flutter-AudioPlayer) |
 | Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | [Rive](https://rive.app) (bývalé Flare) |
 | Balíček závislosti třetí strany | [flare_flutter](https://pub.dev/packages/flare_flutter) |

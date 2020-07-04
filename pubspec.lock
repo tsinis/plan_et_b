@@ -7,14 +7,14 @@ packages:
       name: assets_audio_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6+4"
+    version: "2.0.7+9"
   assets_audio_player_web:
     dependency: transitive
     description:
       name: assets_audio_player_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6+4s"
+    version: "2.0.7+9"
   auto_size_text:
     dependency: "direct main"
     description:
@@ -84,7 +84,7 @@ packages:
       name: flare_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.4"
   flutter:
     dependency: "direct main"
     description: flutter

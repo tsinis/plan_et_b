@@ -132,7 +132,7 @@ flutter build apk --split-per-abi
 | Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | Assets Audio Player |
 | Пакет сторонней зависимости | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
-| Версия сторонней зависимости | [2.0.6+4](https://github.com/florent37/Flutter-AssetsAudioPlayer) |
+| Версия сторонней зависимости | [2.0.6+4](https://github.com/florent37/Flutter-AudioPlayer) |
 | Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | [Rive](https://rive.app) (бывшее Flare) |
 | Пакет сторонней зависимости | [flare_flutter](https://pub.dev/packages/flare_flutter) |
