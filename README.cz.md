@@ -17,16 +17,19 @@
 
 ## Popis
 
-V této větvi najdete **můj původní odměněný příspěvek** v **oficiálním hackathonu Flutter Community** nazvaném „***#Hack20***“. S více než 2665 účastníky, 650 týmy а s 266 přihlášenými projekty. Více o tomto hackathonu a jeho pravidlech si můžete přečíst zde: [flutterhackathon.com](https://flutterhackathon.com)
+V této větvi najdete **můj původní oceněný příspěvek** v **oficiálním, dvoudenním, mezinárodním hackathonu Společenství Flutter** s názvem „***#Hack20***“.
+> **Pozor:** V sousední větvi naleznete verzi, která bude dokončena podle seznamu úkolů.
 
-#### Oficiální témata Flutter Community Hackathonu 2020:
+Hackaton měl **přes 2665 účastníků, 650 týmů**, s 266 projekty. Psaní kódu se řídilo pravidly hackathonu, seznam dalších výherců a další informace o pravidlech najdete na oficiálních stránkách: [flutterhackathon.com](https://flutterhackathon.com)
 
-* 🌎 **Zachránit planetu** (Ekologie / Co jsme se naučili během pandemie)
+#### Oficiální témata Hackathonu Flutter Společenství v roce 2020:
+
+* 🌎 **Zachraňte planetu** (Ekologie / Co jsme se naučili během pandemie)
 
 * 👾 **Retro / Kyberpunk budoucnost**
 
 Rozhodl jsem se pracovat na obou tématech a vytvořil jednoduchou **pseudo-3D hru, ve stylu Wing Commander (1990). S kyberpunk / Iron Man uživatelským rozhraním a tematickou hudbou a zvuky. Můžete si jej zahrát v internetovém prohlížeči nebo nainstalovat do zařízení pro offline použití, protože je to progresivní webové aplikace (PWA)**. Hlavní jádro této hry bylo vyrobeno v [Rive](https://rive.app) (bývalé Flare).
-> **Poznámka:** design hry je sám o sobě nezávislý na velikosti displeje, tj. aplikaci lze spustit na jakkoli velkém displeji bez ztráty kvality (všechna grafika je připravena ve křivkách), avšak vytvářel jsem ho pro displeje, o velikosti cca 7-12'.
+> **Poznámka:** Design hry je sám o sobě nezávislý na velikosti displeje, tj. aplikaci lze spustit na jakkoli velkém displeji bez ztráty kvality (všechna grafika je připravena ve křivkách), avšak vytvářel jsem ho pro displeje, o velikosti cca 7-12'.
 
 Vaším úkolem je **létat ve vesmíru, hledat tzv. „Planetu B“ a určovat vhodnost této planety pro život (kliknutím). K dispozici je tucet planet, které máte zkontrolovat, ale máte málo paliva** (na cca 1,5 minuty letu). Na konci mise uvidíte počet naskenovaných planet nebo si hru můžete znovu spustit.
 
@@ -49,12 +52,14 @@ Tady neexistuje žádná planeta B (vhodná pro život). A je to hlavní bod té
 
 ---
 
-:warning: **Důležité! Dříve než začnete!** :warning:
+:warning: **Důležité! Dříve než začnete!**
 
 
 Tento projekt v podobě progresivní webové aplikace (PWA) **lze spustit pouze v novějších Chromium prohlížečích (Chrome, Edge, atd) verze 83 nebo novější. Také jsem to testoval na Firefox v77+**, takže to může být také v pořádku. Nesnažte se jej spustit na Safari, Internet Exploreru atd. - nemohou to zvládnout!
 
 ---
+:information_source: Bude spuštěna nová verze, pro zobrazení původní hry stačí sestavit projekt z této větvi lokálně.
+
 Díky [Codemagic](https://codemagic.io), stačí kliknout na tento odkaz a spustit jej v moderním prohlížeči:
 
 [https://hack20.codemagic.app](https://hack20.codemagic.app)

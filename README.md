@@ -17,7 +17,10 @@
 
 ## Description
 
-In this branch you will find **my original awarded submission** in **Official Flutter Community** hackathon, called "***#Hack20***". With more than 2665 attendees and 650 teams, with 266 projects submitted. You can read more about this hackathon and it's rules here: [flutterhackathon.com](https://flutterhackathon.com)
+In this branch you will find the **my original award-winning submission** in the **official international Flutter Community Hackaton** called "***#Hack20***".
+> **Note:**  In another branch you will find the version that will be finalized according to the To-Do list.
+
+The hackaton had over **2665 attendees, 650 teams**, with 266 projects. Writing the code was guided by the hackathon rules, the list of other winners, as well as more info about the rules, can be found on the official website: [flutterhackathon.com](https://flutterhackathon.com)
 
 #### Official Flutter Community Hackathon 2020 Themes:
 
@@ -49,12 +52,14 @@ There is no planet B (suitable for life). And it's the main point of this game a
 
 ---
 
-:warning: **Important! BEFORE YOU START!** :warning:
+:warning: **Important! BEFORE YOU START!**
 
 
 This project in form of PWA **will only run on most recent browsers, with Chromium (Chrome, Edge, etc.) engine v83 or newer. Also, I've tested it on Firefox v77+**, so it might be OK too. Don't even try to run it on Safari, Internet Explorer and so on — they can't handle it!
 
 ---
+:information_source: The new version will be launched, to view the original game just build a project from this branch locally.
+
 Thanks to [Codemagic](https://codemagic.io), you can just follow this link and run it in your modern browser:
 
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
