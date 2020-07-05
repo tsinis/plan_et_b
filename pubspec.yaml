@@ -12,6 +12,8 @@ dependencies:
   auto_size_text: any
   flare_flutter: ^2.0.4
   assets_audio_player: 2.0.7+9
+  path_provider_macos: ^0.0.4+3
+  path_provider: ^1.6.11
 
 dev_dependencies:
   # flutter_test:
