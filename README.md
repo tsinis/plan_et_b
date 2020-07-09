@@ -17,8 +17,8 @@
 
 ## Description
 
-In this branch you will find the **my original award-winning submission** in the **official international Flutter Community Hackaton** called "***#Hack20***".
-> **Note:**  In another branch you will find the version that will be finalized according to the To-Do list.
+In this branch you will find the **updated** version of my **award-winning submission** in the **Official international Flutter Community Hackaton** called "***#Hack20***".
+> **Note:**  In another branch you will find the original version that was submitted in hackathon.
 
 The hackaton had over **2665 attendees, 650 teams**, with 266 projects. Writing the code was guided by the hackathon rules, the list of other winners, as well as more info about the rules, can be found on the official website: [flutterhackathon.com](https://flutterhackathon.com)
 
@@ -58,7 +58,7 @@ There is no planet B (suitable for life). And it's the main point of this game a
 This project in form of PWA **will only run on most recent browsers, with Chromium (Chrome, Edge, etc.) engine v83 or newer. Also, I've tested it on Firefox v77+**, so it might be OK too. Don't even try to run it on Safari, Internet Explorer and so on — they can't handle it!
 
 ---
-:information_source: The new version will be launched, to view the original game just build a project from this branch locally.
+:information_source: Updated version will be launched, to view the original game just build a project from another branch locally.
 
 Thanks to [Codemagic](https://codemagic.io), you can just follow this link and run it in your modern browser:
 
@@ -90,7 +90,7 @@ flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-defin
 flutter build apk --split-per-abi
 ```
 
- *Sadly other devices (like iPhones, PCs, Macs will have no sound and music, because I didn't found any good plugin for it). You can build it for those platforms without any compile errors just after removing the audio player package from the code. I'm working on this Issue (see To-Do Section below).*
+ *Sadly other devices (like PCs and Macs will have no sound and music, because I didn't found any good plugin for it). You can build it for those platforms without any compile errors just after removing the audio player package from the code. I'm working on this Issue (see To-Do Section below).*
 
  Anyways this game was made to be a PWA, so there is no reason to have a native app, since you can install it from a browser, on almost any recent device.
 
@@ -125,14 +125,14 @@ You can find binaries for Android and Web in [Releases](https://github.com/tsini
 | IDE channel | insider |
 | 3rd-party Dependency name | Auto Size Text|
 | 3rd-party Dependency package | [auto_size_text](https://pub.dev/packages/auto_size_text) |
-| 3rd-party Dependency version | [2.1.0](https://github.com/leisim/auto_size_text) |
+| 3rd-party Dependency version | [any](https://github.com/leisim/auto_size_text) |
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | Assets Audio Player |
 | 3rd-party Dependency package | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
-| 3rd-party Dependency version | [2.0.6+4](https://github.com/florent37/Flutter-AssetsAudioPlayer) |
+| 3rd-party Dependency version | [any](https://github.com/florent37/Flutter-AudioPlayer) |
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | [Rive](https://rive.app) (ex Flare) |
 | 3rd-party Dependency package | [flare_flutter](https://pub.dev/packages/flare_flutter) |
-| 3rd-party Dependency version | [2.0.3](https://github.com/2d-inc/Flare-Flutter) |
+| 3rd-party Dependency version | [any](https://github.com/2d-inc/Flare-Flutter) |
 | 3rd-party Dependency channel | stable |
 | Architecture | Vanilla |

@@ -17,8 +17,8 @@
 
 ## Popis
 
-V této větvi najdete **můj původní oceněný příspěvek** v **oficiálním, dvoudenním, mezinárodním hackathonu Společenství Flutter** s názvem „***#Hack20***“.
-> **Pozor:** V sousední větvi naleznete verzi, která bude dokončena podle seznamu úkolů.
+V této větvi najdete **aktualizovanou verzi**  mého **oceněného příspěveku** v **oficiálním, dvoudenním, mezinárodním hackathonu Společenství Flutter** s názvem „***#Hack20***“.
+> **Pozor:** V sousední větvi naleznete originální verzi, která byla poslána do hackathonu.
 
 Hackaton měl **přes 2665 účastníků, 650 týmů**, s 266 projekty. Psaní kódu se řídilo pravidly hackathonu, seznam dalších výherců a další informace o pravidlech najdete na oficiálních stránkách: [flutterhackathon.com](https://flutterhackathon.com)
 
@@ -58,7 +58,7 @@ Tady neexistuje žádná planeta B (vhodná pro život). A je to hlavní bod té
 Tento projekt v podobě progresivní webové aplikace (PWA) **lze spustit pouze v novějších Chromium prohlížečích (Chrome, Edge, atd) verze 83 nebo novější. Také jsem to testoval na Firefox v77+**, takže to může být také v pořádku. Nesnažte se jej spustit na Safari, Internet Exploreru atd. - nemohou to zvládnout!
 
 ---
-:information_source: Bude spuštěna nová verze, pro zobrazení původní hry stačí sestavit projekt z této větvi lokálně.
+:information_source: Bude spuštěna nová verze, pro zobrazení původní hry stačí sestavit projekt ze sousední větvi lokálně.
 
 Díky [Codemagic](https://codemagic.io), stačí kliknout na tento odkaz a spustit jej v moderním prohlížeči:
 
@@ -90,7 +90,7 @@ flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-defin
 flutter build apk --split-per-abi
 ```
 
-*Bohužel jiná zařízení (jako iPhone, PC, Mac nebudou mít žádný zvuk ani hudbu, protože jsem nenašel žádný vhodný plugin). Můžete hru sestavit pro tyto platformy bez jakýchkoli chyb při kompilaci jenom po odebrání balíčku audio přehrávače z kódu. Na tomto problému pracuji (viz Úkoly níže).*
+*Bohužel jiná zařízení (jako PC a Mac nebudou mít žádný zvuk ani hudbu, protože jsem nenašel žádný vhodný plugin). Můžete hru sestavit pro tyto platformy bez jakýchkoli chyb při kompilaci jenom po odebrání balíčku audio přehrávače z kódu. Na tomto problému pracuji (viz Úkoly níže).*
 
 Každopádně, tato hra byla vytvořena jako progresivní webové aplikace (PWA), není tedy důvod mít nativní aplikaci, protože hru můžete nainstalovat z prohlížeče na téměř jakémkoli zařízení.
 
@@ -125,14 +125,14 @@ Binární spouštěcí soubory najdete v části [Releases](https://github.com/t
 | Kanál vývojového prostředí | předběžný |
 | Název závislosti třetí strany | Auto Size Text|
 | Balíček závislosti třetí strany | [auto_size_text](https://pub.dev/packages/auto_size_text) |
-| Verze závislosti třetí strany | [2.1.0](https://github.com/leisim/auto_size_text) |
+| Verze závislosti třetí strany | [any](https://github.com/leisim/auto_size_text) |
 | Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | Assets Audio Player |
 | Balíček závislosti třetí strany | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
-| Verze závislosti třetí strany | [2.0.6+4](https://github.com/florent37/Flutter-AssetsAudioPlayer) |
+| Verze závislosti třetí strany | [any](https://github.com/florent37/Flutter-AudioPlayer) |
 | Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | [Rive](https://rive.app) (bývalé Flare) |
 | Balíček závislosti třetí strany | [flare_flutter](https://pub.dev/packages/flare_flutter) |
-| Verze závislosti třetí strany | [2.0.3](https://github.com/2d-inc/Flare-Flutter) |
+| Verze závislosti třetí strany | [any](https://github.com/2d-inc/Flare-Flutter) |
 | Kanál závislosti třetí strany | stabilní |
 | Architektura | Vanilla |
