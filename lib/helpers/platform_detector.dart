@@ -27,12 +27,7 @@ class GameControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _isSmartphone
-      ? GestureDetector(
-          child: child,
-          onDoubleTap: onTap,
-          onPanEnd: onExit,
-          onPanStart: onEnter,
-          onPanUpdate: onHover)
+      ? GestureDetector(child: child, onDoubleTap: onTap, onPanEnd: onExit, onPanStart: onEnter, onPanUpdate: onHover)
       : MouseRegion(
           child: GestureDetector(child: child, onTap: onTap),
           cursor: SystemMouseCursors.none,

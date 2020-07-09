@@ -32,8 +32,7 @@ class IKController implements FlareController {
     }
 
     _animationTime += elapsed;
-    _backgroundLoop?.apply(
-        _animationTime % _backgroundLoop.duration, artboard, 1.0);
+    _backgroundLoop?.apply(_animationTime % _backgroundLoop.duration, artboard, 1.0);
 
     if (_ikTarget == null || _screenTouch == null || _viewTransform == null) {
       return false;
@@ -45,10 +44,7 @@ class IKController implements FlareController {
     }
 
     Vec2D worldTouch = Vec2D();
-    Vec2D.transformMat2D(
-        worldTouch,
-        Vec2D.fromValues(_screenTouch.dx, _screenTouch.dy),
-        inverseViewTransform);
+    Vec2D.transformMat2D(worldTouch, Vec2D.fromValues(_screenTouch.dx, _screenTouch.dy), inverseViewTransform);
 
     Mat2D inverseTargetWorld = Mat2D();
     if (!Mat2D.invert(inverseTargetWorld, _ikTarget.parent.worldTransform)) {
@@ -58,8 +54,7 @@ class IKController implements FlareController {
     Vec2D localTouchCoordinates = Vec2D();
     Vec2D.transformMat2D(localTouchCoordinates, worldTouch, inverseTargetWorld);
 
-    RivePseudo3DRenderObject.ikTarget.translation =
-        _ikTarget.translation = localTouchCoordinates;
+    RivePseudo3DRenderObject.ikTarget.translation = _ikTarget.translation = localTouchCoordinates;
     return true;
   }
 

@@ -22,8 +22,7 @@ class Pseudo3DActor extends FlutterActor {
 
   static Pseudo3DArtboard instanceArtboard(FlutterActor _source) {
     Pseudo3DActor pseudo3DActor = Pseudo3DActor(_source);
-    return _source.artboard.makeInstanceWithActor(pseudo3DActor)
-        as Pseudo3DArtboard;
+    return _source.artboard.makeInstanceWithActor(pseudo3DActor) as Pseudo3DArtboard;
   }
 }
 
@@ -60,8 +59,7 @@ class Pseudo3DArtboard extends FlutterActorArtboard {
 
         Matrix4 pseudo3DTransform = Matrix4.copy(_transform);
         // 3D depth can be change here:
-        pseudo3DTransform.multiply(Matrix4.translationValues(
-            0, 0, -100 - _index * 25 * _pseudo3DDepth));
+        pseudo3DTransform.multiply(Matrix4.translationValues(0, 0, -100 - _index * 25 * _pseudo3DDepth));
         (_drawable as _Pseudo3DDrawable).pseudo3DTransform = pseudo3DTransform;
       }
     }
@@ -72,8 +70,7 @@ class _Pseudo3DDrawable {
   Matrix4 pseudo3DTransform;
 }
 
-class _Pseudo3DActorShape extends FlutterActorShape
-    implements _Pseudo3DDrawable {
+class _Pseudo3DActorShape extends FlutterActorShape implements _Pseudo3DDrawable {
   @override
   Matrix4 pseudo3DTransform;
 
@@ -86,8 +83,7 @@ class _Pseudo3DActorShape extends FlutterActorShape
   }
 }
 
-class _Pseudo3DActorImage extends FlutterActorImage
-    implements _Pseudo3DDrawable {
+class _Pseudo3DActorImage extends FlutterActorImage implements _Pseudo3DDrawable {
   @override
   Matrix4 pseudo3DTransform;
 

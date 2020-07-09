@@ -2,8 +2,8 @@ import 'package:flare_flutter/flare_cache.dart' show FlareCache, cachedActor;
 import 'package:flutter/material.dart' show MaterialApp;
 import 'package:flutter/widgets.dart';
 
-import 'game_screen.dart';
-import 'info_screen.dart';
+import 'screens/game_screen.dart';
+import 'screens/info_screen.dart';
 
 Future<void> _cacheGame() async => await cachedActor(MainScreen.cache);
 
@@ -18,8 +18,6 @@ class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-      debugShowCheckedModeBanner: false,
-      navigatorKey: MainScreen.navKey,
-      home: InfoScreen());
+  Widget build(BuildContext context) =>
+      MaterialApp(debugShowCheckedModeBanner: false, navigatorKey: MainScreen.navKey, home: InfoScreen());
 }

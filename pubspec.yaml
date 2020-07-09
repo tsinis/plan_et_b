@@ -10,8 +10,8 @@ dependencies:
   # flutter_localizations:
   #       sdk: flutter
   auto_size_text: any
-  flare_flutter: ^2.0.3
-  assets_audio_player: 2.0.6+4
+  flare_flutter: ^2.0.5
+  assets_audio_player: 2.0.7+9
 
 dev_dependencies:
   # flutter_test:
@@ -30,6 +30,7 @@ flutter:
     - assets/animations/background.flr
     - assets/audio/cubedcanada+invaderloop.mp3
     - assets/audio/misc_12.ogg
+    - assets/images/StarfieldSimulation_rot.gif
 
   fonts:
     - family: Seldom Scene
