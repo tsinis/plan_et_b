@@ -2,8 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-extension HoverExtensions on Widget {
+extension FontEnchantments on Widget {
   Widget get glitchText => _Glitch(child: this);
+  static const displayGlitch = TextStyle(fontFamily: 'Corruptor LDR', fontSize: 42, color: Color(0xFFffffff));
+  static const displayClean = TextStyle(fontFamily: 'Corruptor Clean LDR', fontSize: 42, color: Color(0xFFffffff));
+  static const text = TextStyle(fontFamily: 'Polentical Neon', fontSize: 22, color: Color(0xFFc0c0c0));
 }
 
 class _Glitch extends StatefulWidget {
@@ -16,9 +19,10 @@ class _Glitch extends StatefulWidget {
 }
 
 class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
+  static bool stopped = false;
+
   AnimationController _animationController;
   Animation<double> _glitchAnimation;
-  bool _stoped = false;
 
   @override
   void dispose() {
@@ -29,14 +33,14 @@ class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 700));
-    _glitchAnimation = Tween(begin: 0.0, end: 3.0).animate(
+    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200));
+    _glitchAnimation = Tween(begin: 1.0, end: 3.0).animate(
         CurvedAnimation(curve: Curves.bounceInOut, reverseCurve: Curves.slowMiddle, parent: _animationController));
 
     _animationController.addStatusListener((AnimationStatus _status) {
-      if (_status == AnimationStatus.completed && _stoped == false) {
+      if (_status == AnimationStatus.completed && stopped == false) {
         _animationController.reverse();
-      } else if (_status == AnimationStatus.dismissed && _stoped == false) {
+      } else if (_status == AnimationStatus.dismissed && stopped == false) {
         _animationController.forward();
       }
     });
@@ -44,8 +48,8 @@ class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
   }
 
   void _glitch() {
-    _stoped = !_stoped;
-    _stoped ? _animationController.reset() : _animationController.forward();
+    stopped = !stopped;
+    stopped ? _animationController.reset() : _animationController.forward();
   }
 
   @override
@@ -90,6 +94,9 @@ class _GlitchText extends StatelessWidget {
   final _Glitch text;
 
   @override
-  Widget build(BuildContext context) =>
-      DefaultTextStyle(child: text.child, style: Theme.of(context).textTheme.headline2.copyWith(color: color));
+  Widget build(BuildContext context) => DefaultTextStyle(
+      child: text.child,
+      style: _GlitchState.stopped
+          ? FontEnchantments.displayClean.copyWith(color: color)
+          : FontEnchantments.displayGlitch.copyWith(color: color));
 }

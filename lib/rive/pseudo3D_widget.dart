@@ -9,6 +9,7 @@ import 'package:flare_dart/math/mat2d.dart' show Mat2D;
 import 'package:flare_dart/math/aabb.dart' show AABB;
 import 'package:flutter/widgets.dart';
 
+import '../helpers/glitch_extension.dart';
 import '../screens/game_screen.dart';
 import 'pseudo3D_actor.dart';
 
@@ -60,10 +61,11 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
   void _scoreDialog() {
     showDialog<dynamic>(
       context: context,
+      //TODO Check this dialog.
       builder: (_) => AlertDialog(
           shape: const BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          contentTextStyle: MainScreen.textStyle(),
-          titleTextStyle: MainScreen.textStyle(),
+          contentTextStyle: FontEnchantments.text,
+          titleTextStyle: FontEnchantments.text,
           backgroundColor: const Color(0xFF560631),
           title: const Text(
             'Final Verdict',
@@ -73,12 +75,14 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: 'You have checked $score/12 planets but:\n\n',
-              style: MainScreen.textStyle(),
+              style: FontEnchantments.text,
               children: <TextSpan>[
                 TextSpan(
                     text: "There is no planet B!\nSo let's take care of this one.\n\n",
-                    style: MainScreen.textStyle(const Color(0xFFffdd00), 30.0)),
-                TextSpan(text: 'Press F5 to play again', style: MainScreen.textStyle(const Color(0xFFc0c0c0))),
+                    style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 30.0)),
+                TextSpan(
+                    text: 'Press F5 to play again',
+                    style: FontEnchantments.text.copyWith(color: const Color(0xFFc0c0c0))),
               ],
             ),
           )),

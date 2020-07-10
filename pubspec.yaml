@@ -23,16 +23,27 @@ dev_dependencies:
 #   enabled: true
 
 flutter:
-  uses-material-design: false
+  uses-material-design: true
 
   assets:
     - assets/animations/foreground.flr
     - assets/animations/background.flr
     - assets/audio/cubedcanada+invaderloop.mp3
-    - assets/audio/misc_12.ogg
+    - assets/audio/beam.wav
     - assets/images/StarfieldSimulation_rot.gif
 
   fonts:
-    - family: Seldom Scene
+    - family: Corruptor Clean LDR
       fonts:
-        - asset: third-party/fonts/Seldom Scene/Seldom Scene.otf
+        - asset: third-party/fonts/corruptor-clean-ldr/corruptor-clean-ldr.ttf
+
+    - family: Corruptor LDR
+      fonts:
+        - asset: third-party/fonts/corruptor-ldr/corruptor-ldr.ttf
+
+    - family: Polentical Neon
+      fonts:
+        - asset: third-party/fonts/polentical-neon/Polentical Neon Regular.ttf
+
+        - asset: third-party/fonts/polentical-neon/Polentical Neon Italic.ttf
+          style: italic

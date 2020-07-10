@@ -16,10 +16,6 @@ class MainScreen extends StatefulWidget {
 
   static AssetProvider cache = AssetFlare(bundle: rootBundle, name: 'assets/animations/background.flr');
 
-  static TextStyle textStyle([Color _color = const Color(0xFFffffff), double _fontSize]) {
-    return TextStyle(fontFamily: 'Seldom Scene', color: _color, fontSize: _fontSize);
-  }
-
   AssetProvider get _cache => cache;
 
   @override

@@ -104,7 +104,7 @@ flutter build apk --split-per-abi
 - [ ] Add Splash Screen and Icons.
 
 ## Licenses
-This project is released under the terms of the [MIT license](./LICENSE). All assets (as sounds, animations, and font) are OFL or CC licensed and are free for personal use. You can find **LICENSE** files in their folders.
+This project is released under the terms of the [MIT license](./LICENSE). All assets (as sounds, animations, and font) are CC licensed and are free for personal use. You can find **LICENSE** files in their folders.
 
 ## Releases
 
