@@ -12,6 +12,10 @@ dependencies:
   auto_size_text: any
   flare_flutter: ^2.0.5
   assets_audio_player: 2.0.7+9
+  sa_stateless_animation: ^1.0.1
+  cyber_flutter:
+    git:
+      url: git://github.com/sbis04/cyber_flutter.git
 
 dev_dependencies:
   # flutter_test:

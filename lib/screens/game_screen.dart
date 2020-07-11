@@ -27,7 +27,7 @@ class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStat
   AnimationController _hudController;
   final IKController _ikController = IKController();
   double _point = 0.0, _turn = 0.0;
-  final AssetsAudioPlayer _sfxAudioPlayer = AssetsAudioPlayer();
+  final AssetsAudioPlayer _sfxAudioPlayer = AssetsAudioPlayer.withId('sfx_player');
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStat
     _sfxAudioPlayer.open(
       Audio('assets/audio/beam.wav'),
       autoStart: true,
-      volume: 0.3,
+      volume: 0.25,
       playInBackground: PlayInBackground.disabledRestoreOnForeground,
       respectSilentMode: true,
       showNotification: false,
