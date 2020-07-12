@@ -112,7 +112,7 @@ This project is released under the terms of the [MIT license](./LICENSE). All as
 * Asset type: Display Font.
 [“Corruptor Clean LDR”](https://fontstruct.com/fontstructions/show/985416)
 by [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
-is licensed under [CC BY-NC-SA 3.0](htp://creativecommons.org/licenses/by-nc-sa/3.0/).
+is licensed under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 * Asset type: Display Font.
 [“Corruptor LDR”](https://fontstruct.com/fontstructions/show/983353)
 by [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
