@@ -10,6 +10,7 @@
   * [Jak to sestavit?](#Jak-to-sestavit?)
 * [Úkoly](#Úkoly-do-budoucna)
 * [Licence](#Licence)
+* [Atribuce](#Atribuce)
 * [Vydání](#Vydání)
 * [Technická data](#Technická-data)
 
@@ -104,7 +105,27 @@ Každopádně, tato hra byla vytvořena jako progresivní webové aplikace (PWA)
 - [ ] Přidat úvodní obrazovku a ikonky.
 
 ## Licence
-Kód je licencován na základě [MIT licence](./LICENSE), podklady (jako zvuky, animace a písmo) jsou licencovány s CC licenci. Soubor s názvem **LICENSE** najdete uvnitř adresářů, který obsahuje kopii licence, s plným textem této licence, v anglickém jazyce.
+Kód je licencován na základě [MIT licence](./LICENSE), podklady (jako zvuky, animace a písma) jsou licencovány s CC licenci. Soubor s názvem **LICENSE** najdete uvnitř adresářů, který obsahuje kopii licence, s plným textem této licence, v anglickém jazyce.
+
+## Atribuce
+
+* Typ asetu: Nadpisové písmo.
+[“Corruptor Clean LDR”](https://fontstruct.com/fontstructions/show/985416)
+od [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
+je licencován na základě licence [CC BY-NC-SA 3.0](htp://creativecommons.org/licenses/by-nc-sa/3.0/).
+* Typ asetu: Nadpisové písmo.
+[“Corruptor LDR”](https://fontstruct.com/fontstructions/show/983353)
+od [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
+je licencován na základě licence [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+* Typ asetu: Textové písmo.
+[“Polentical Neon”](https://www.dafont.com/polentical-neon.font)
+od [Jayvee D. Enaguas “Grand Chaos“](https://harvettfox96.neocities.org)
+je licencován na základě licence [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+* Typ asetu: Hudba,
+[“SCI FI HORROR OPENING MASTERED”](https://soundcloud.com/21bakerstreet/sci-fi-horror-opening-mastered)
+od [Michael Dunn “21bakerstreet”](https://soundcloud.com/21bakerstreet)
+je licencován na základě licence [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+>**Změny v hudebním assetu:** WAV byl převeden na MP3 (64 kbps) a mezery v názvu souboru jsou nahrazeny podtržítky.
 
 ## Vydání
 

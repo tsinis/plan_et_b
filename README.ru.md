@@ -10,6 +10,7 @@
   * [Как собрать?](#Как-собрать?)
 * [Список будущих дел](#Список-будущих-дел)
 * [Лицензии](#Лицензии)
+* [Атрибуции](#Атрибуции)
 * [Релизы](#Релизы)
 * [Технические данные](#Технические-данные)
 
@@ -107,7 +108,27 @@ flutter build apk --split-per-abi
 
 ## Лицензии
 
-Этот проект выпущен  в соответствии с условиями [MIT лицензии](./LICENSE). Все ресурсы (звуки, анимации и шрифт) лицензированы согласно лицензиям CC, и бесплатны для личного пользования. Вы можете найти все эти файлы лицензии **LICENSE**, внутри папок, с полным текстом этой лицензии, на английском языке.
+Этот проект выпущен  в соответствии с условиями [MIT лицензии](./LICENSE). Все ресурсы (звуки, анимации и шрифты) лицензированы согласно лицензиям CC, и бесплатны для личного пользования. Вы можете найти все эти файлы лицензии **LICENSE**, внутри папок, с полным текстом этой лицензии, на английском языке.
+
+## Атрибуции
+
+* Тип ассета: Заголовочный шрифт.
+[“Corruptor Clean LDR”](https://fontstruct.com/fontstructions/show/985416)
+от [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
+лицензирован в соответствии с лицензией [CC BY-NC-SA 3.0](htp://creativecommons.org/licenses/by-nc-sa/3.0/).
+* Тип ассета: Заголовочный шрифт.
+[“Corruptor LDR”](https://fontstruct.com/fontstructions/show/983353)
+от [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
+лицензирован в соответствии с лицензией [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+* Тип ассета: Текстовый шрифт.
+[“Polentical Neon”](https://www.dafont.com/polentical-neon.font)
+от [Jayvee D. Enaguas “Grand Chaos“](https://harvettfox96.neocities.org)
+лицензирован в соответствии с лицензией [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+* Тип ассета: Музыка,
+[“SCI FI HORROR OPENING MASTERED”](https://soundcloud.com/21bakerstreet/sci-fi-horror-opening-mastered)
+от [Michael Dunn “21bakerstreet”](https://soundcloud.com/21bakerstreet)
+лицензирован в соответствии с лицензией [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+> **Изменения в музыкальном ассете:** WAV файл был преобразован в MP3 (64 кбит/с), а пробелы в имени файла заменены подчеркиваниями.
 
 ## Релизы
 

@@ -7,15 +7,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # flutter_localizations:
-  #       sdk: flutter
+
   auto_size_text: any
+  url_launcher: any
   flare_flutter: ^2.0.5
   assets_audio_player: 2.0.7+9
   sa_stateless_animation: ^1.0.1
-  cyber_flutter:
-    git:
-      url: git://github.com/sbis04/cyber_flutter.git
 
 dev_dependencies:
   # flutter_test:
@@ -23,17 +20,14 @@ dev_dependencies:
   pedantic: any
   effective_dart: any
 
-# flutter_intl:
-#   enabled: true
-
 flutter:
   uses-material-design: true
 
   assets:
     - assets/animations/foreground.flr
     - assets/animations/background.flr
-    - assets/audio/cubedcanada+invaderloop.mp3
-    - assets/audio/beam.wav
+    - assets/audio/music/SCI_FI_HORROR_OPENING_MASTERED.mp3
+    - assets/audio/sfx/431732__sieuamthanh__beam-11.wav
     - assets/images/StarfieldSimulation_rot.gif
 
   fonts:

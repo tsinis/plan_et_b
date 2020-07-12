@@ -1,13 +1,11 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cyber_flutter/theme/colors.dart';
-import 'package:cyber_flutter/widgets/cyber_button.dart';
-import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/material.dart';
 import 'package:sa_stateless_animation/sa_stateless_animation.dart';
 
 import '../helpers/glitch_extension.dart';
-import 'game_screen.dart';
+import '../widgets/button.dart';
+import '../widgets/dialog.dart';
 
 class InfoScreen extends StatelessWidget {
   InfoScreen({Key key}) : super(key: key);
@@ -17,7 +15,7 @@ class InfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     bool _isSmartPhone = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
 
-    _musicAudioPlayer.open(Audio('assets/audio/cubedcanada+invaderloop.mp3'),
+    _musicAudioPlayer.open(Audio('assets/audio/music/SCI_FI_HORROR_OPENING_MASTERED.mp3'),
         loopMode: LoopMode.single, autoStart: false, volume: 0.33, respectSilentMode: true, showNotification: false);
 
     return Scaffold(
@@ -44,8 +42,8 @@ class InfoScreen extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
                       border: Border(
-                          top: BorderSide(color: CyberColor.lightGray, width: 4),
-                          bottom: BorderSide(color: CyberColor.lightGray, width: 4)),
+                          top: BorderSide(color: Color(0xFF09cad9), width: 4),
+                          bottom: BorderSide(color: Color(0xFF09cad9), width: 4)),
                       gradient: RadialGradient(
                           center: Alignment(-0.6, -0.5),
                           radius: 0.1,
@@ -71,7 +69,7 @@ class InfoScreen extends StatelessWidget {
                                 style: FontEnchantments.text,
                                 textAlign: TextAlign.center),
                           ),
-                          const CyberOkButton(),
+                          const CyberButton(),
                           Flexible(
                             child: AutoSizeText(
                                 "Move aim to look around, press to determine a planet's suitability for life. There is a dozen planets to check.",
@@ -108,8 +106,9 @@ class InfoScreen extends StatelessWidget {
                     tooltip: 'About',
                     icon: const Icon(Icons.info_outline),
                     onPressed: () => showDialog<void>(
-                        context: context,
-                        builder: (BuildContext context) => const Dialog(child: CyberOkButton(about: true))),
+                      context: context,
+                      builder: (BuildContext context) => const CyberDialog(about: true),
+                    ),
                   ),
                   IconButton(
                       iconSize: 40.0,
@@ -126,19 +125,4 @@ class InfoScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class CyberOkButton extends StatelessWidget {
-  const CyberOkButton({Key key, this.about = false}) : super(key: key);
-  final bool about;
-  @override
-  Widget build(BuildContext context) => CyberButton(
-        child: Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 13.0, top: 8.0, bottom: 8.0),
-            child: Text('OK', style: FontEnchantments.displayClean.copyWith(fontSize: 16))),
-        onPressed: () => about
-            ? Navigator.pop(context)
-            : Navigator.push(
-                context, CupertinoPageRoute<Route>(fullscreenDialog: true, builder: (context) => const MainScreen())),
-      );
 }

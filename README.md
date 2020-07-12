@@ -10,6 +10,7 @@
   * [How to build it?](#How-to-build-it?)
 * [To-Do Section](#To-Do-Section)
 * [Licenses](#Licenses)
+* [Attributions](#Attributions)
 * [Releases](#Releases)
 * [Technical Data](#Technical-Data)
 
@@ -104,7 +105,27 @@ flutter build apk --split-per-abi
 - [ ] Add Splash Screen and Icons.
 
 ## Licenses
-This project is released under the terms of the [MIT license](./LICENSE). All assets (as sounds, animations, and font) are CC licensed and are free for personal use. You can find **LICENSE** files in their folders.
+This project is released under the terms of the [MIT license](./LICENSE). All assets (as sounds, animations, and fonts) are CC licensed and are free for personal use. You can find **LICENSE** files in their folders.
+
+## Attributions
+
+* Asset type: Display Font.
+[“Corruptor Clean LDR”](https://fontstruct.com/fontstructions/show/985416)
+by [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
+is licensed under [CC BY-NC-SA 3.0](htp://creativecommons.org/licenses/by-nc-sa/3.0/).
+* Asset type: Display Font.
+[“Corruptor LDR”](https://fontstruct.com/fontstructions/show/983353)
+by [Michał Nowak “Neoqueto”](https://fontstruct.com/fontstructors/196948/neoqueto)
+is licensed under [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+* Asset type: Text Font.
+[“Polentical Neon”](https://www.dafont.com/polentical-neon.font)
+by [Jayvee D. Enaguas “Grand Chaos“](https://harvettfox96.neocities.org)
+is licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+* Asset type: Music,
+[“SCI FI HORROR OPENING MASTERED”](https://soundcloud.com/21bakerstreet/sci-fi-horror-opening-mastered)
+by [Michael Dunn “21bakerstreet”](https://soundcloud.com/21bakerstreet)
+is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+> **Changes in Music Asset:** WAV was converted to MP3 (64 kbps) and spaces in filename are replaced with underscores.
 
 ## Releases
 

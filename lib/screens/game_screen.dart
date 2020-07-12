@@ -33,7 +33,7 @@ class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStat
   void initState() {
     super.initState();
     _sfxAudioPlayer.open(
-      Audio('assets/audio/beam.wav'),
+      Audio('assets/audio/sfx/431732__sieuamthanh__beam-11.wav'),
       autoStart: true,
       volume: 0.25,
       playInBackground: PlayInBackground.disabledRestoreOnForeground,

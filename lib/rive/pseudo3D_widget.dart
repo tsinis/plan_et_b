@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart' show AlertDialog, showDialog;
-import 'package:flutter/services.dart' show rootBundle;
-
-import 'package:flare_flutter/asset_provider.dart' show AssetProvider;
-import 'package:flare_flutter/flare_render_box.dart' show FlareRenderBox;
-import 'package:flare_flutter/flare.dart' show ActorAnimation, ActorNode, FlutterActor;
-import 'package:flare_flutter/provider/asset_flare.dart' show AssetFlare;
-import 'package:flare_dart/math/mat2d.dart' show Mat2D;
 import 'package:flare_dart/math/aabb.dart' show AABB;
+import 'package:flare_dart/math/mat2d.dart' show Mat2D;
+import 'package:flare_flutter/asset_provider.dart' show AssetProvider;
+import 'package:flare_flutter/flare.dart' show ActorAnimation, ActorNode, FlutterActor;
+import 'package:flare_flutter/flare_render_box.dart' show FlareRenderBox;
+import 'package:flare_flutter/provider/asset_flare.dart' show AssetFlare;
+import 'package:flutter/material.dart' show showDialog;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 
-import '../helpers/glitch_extension.dart';
 import '../screens/game_screen.dart';
+import '../widgets/dialog.dart';
 import 'pseudo3D_actor.dart';
 
 class RivePseudo3DWidget extends LeafRenderObjectWidget {
@@ -58,36 +57,8 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
   double _animationTime = 0, point, turn, pseudo3DDepth;
   Pseudo3DArtboard _artboard;
   final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/foreground.flr');
-  void _scoreDialog() {
-    showDialog<dynamic>(
-      context: context,
-      //TODO Check this dialog.
-      builder: (_) => AlertDialog(
-          shape: const BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          contentTextStyle: FontEnchantments.text,
-          titleTextStyle: FontEnchantments.text,
-          backgroundColor: const Color(0xFF560631),
-          title: const Text(
-            'Final Verdict',
-            textAlign: TextAlign.center,
-          ),
-          content: RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              text: 'You have checked $score/12 planets but:\n\n',
-              style: FontEnchantments.text,
-              children: <TextSpan>[
-                TextSpan(
-                    text: "There is no planet B!\nSo let's take care of this one.\n\n",
-                    style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 30.0)),
-                TextSpan(
-                    text: 'Press F5 to play again',
-                    style: FontEnchantments.text.copyWith(color: const Color(0xFFc0c0c0))),
-              ],
-            ),
-          )),
-    );
-  }
+
+  void _scoreDialog() => showDialog<void>(context: context, builder: (_) => CyberDialog(finalScore: score));
 
   ActorAnimation _foregroundLoop, _loadUI;
 
