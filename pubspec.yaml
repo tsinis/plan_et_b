@@ -11,7 +11,7 @@ dependencies:
   auto_size_text: any
   url_launcher: any
   flare_flutter: ^2.0.5
-  assets_audio_player: 2.0.7+9
+  assets_audio_player: ^2.0.8+2
   sa_stateless_animation: ^1.0.1
 
 dev_dependencies:
@@ -43,5 +43,5 @@ flutter:
       fonts:
         - asset: third-party/fonts/polentical-neon/Polentical Neon Regular.ttf
 
-        - asset: third-party/fonts/polentical-neon/Polentical Neon Italic.ttf
-          style: italic
+        # - asset: third-party/fonts/polentical-neon/Polentical Neon Italic.ttf
+        #   style: italic

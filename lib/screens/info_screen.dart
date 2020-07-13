@@ -1,8 +1,8 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sa_stateless_animation/sa_stateless_animation.dart';
 
+import '../helpers/audio_player.dart';
 import '../helpers/glitch_extension.dart';
 import '../widgets/button.dart';
 import '../widgets/dialog.dart';
@@ -10,14 +10,9 @@ import '../widgets/dialog.dart';
 class InfoScreen extends StatelessWidget {
   InfoScreen({Key key}) : super(key: key);
 
-  final AssetsAudioPlayer _musicAudioPlayer = AssetsAudioPlayer.withId('music_player');
   @override
   Widget build(BuildContext context) {
     bool _isSmartPhone = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
-
-    _musicAudioPlayer.open(Audio('assets/audio/music/SCI_FI_HORROR_OPENING_MASTERED.mp3'),
-        loopMode: LoopMode.single, autoStart: false, volume: 0.33, respectSilentMode: true, showNotification: false);
-
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: Stack(
@@ -116,7 +111,7 @@ class InfoScreen extends StatelessWidget {
                       color: const Color(0xFF09cad9),
                       tooltip: 'Play/Stop Music. There is short delay, please wait for it',
                       icon: const Icon(Icons.music_note),
-                      onPressed: _musicAudioPlayer.playOrPause),
+                      onPressed: () => AudioPlayer.playPauseMusic),
                 ],
               ),
             ),

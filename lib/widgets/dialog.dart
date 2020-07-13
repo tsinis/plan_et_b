@@ -30,18 +30,27 @@ class _ScoreContent extends StatelessWidget {
 
   final int _finalScore;
 
+  String get _scoreText => (_finalScore > 11)
+      ? 'You have checked all planets but,\n\n'
+      : 'You have checked $_finalScore/12 planets but,\n\n';
+
+  String get _planetBText => (_finalScore > 11)
+      ? "There is no planet B!\nSo let's take care of this one.\n\n"
+      : "Didn't find a Planet B suitable for life.\nTry once more.\n\n";
+
   @override
   Widget build(BuildContext context) => RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          text: 'You have checked $_finalScore/12 planets but:\n\n',
+          text: _scoreText,
           style: FontEnchantments.text,
-          children: <TextSpan>[
+          children: [
             TextSpan(
-                text: "There is no planet B!\nSo let's take care of this one.\n\n",
+                text: _planetBText,
                 style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0)),
-            TextSpan(
-                text: 'Press F5 to play again', style: FontEnchantments.text.copyWith(color: const Color(0xFFc0c0c0))),
+            // TextSpan(
+            //     text: 'Press F5 to play again', style: FontEnchantments.text.copyWith(color: const Color(0xFFc0c0c0))),
+            const WidgetSpan(child: CyberButton(text: 'Play again'))
           ],
         ),
       );
@@ -53,6 +62,7 @@ class _AboutContent extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
             mouseCursor: MaterialStateMouseCursor.clickable,
@@ -74,20 +84,16 @@ class _AboutContent extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          Text(
-            'Attributions',
-            maxLines: 1,
-            textAlign: TextAlign.center,
-            style: FontEnchantments.displayClean.copyWith(fontSize: 18.0, color: Colors.cyanAccent),
+          Center(
+            child: Text('Attributions',
+                maxLines: 1, style: FontEnchantments.displayClean.copyWith(fontSize: 18.0, color: Colors.cyanAccent)),
           ),
-          Text(
-            'Assets used in this project (with CC 3.0 licenses) are:',
-            maxLines: 4,
-            textAlign: TextAlign.center,
-            style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.blueGrey[300]),
+          Center(
+            child: Text('Assets used in this project (with CC 3.0 licenses) are:',
+                maxLines: 4, style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.blueGrey[300])),
           ),
           ...attributions,
-          const CyberButton(text: 'Back')
+          const Center(child: Padding(padding: EdgeInsets.all(10.0), child: CyberButton(text: 'Back')))
         ],
       );
 }

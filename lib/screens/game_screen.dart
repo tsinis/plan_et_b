@@ -1,4 +1,3 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flare_flutter/asset_provider.dart' show AssetProvider;
 import 'package:flare_flutter/flare_actor.dart' show FlareActor;
 import 'package:flare_flutter/provider/asset_flare.dart' show AssetFlare;
@@ -6,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 
+import '../helpers/audio_player.dart';
 import '../helpers/platform_detector.dart';
 import '../rive/ik_controller.dart';
 import '../rive/pseudo3D_widget.dart';
@@ -27,20 +27,10 @@ class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStat
   AnimationController _hudController;
   final IKController _ikController = IKController();
   double _point = 0.0, _turn = 0.0;
-  final AssetsAudioPlayer _sfxAudioPlayer = AssetsAudioPlayer.withId('sfx_player');
 
   @override
   void initState() {
     super.initState();
-    _sfxAudioPlayer.open(
-      Audio('assets/audio/sfx/431732__sieuamthanh__beam-11.wav'),
-      autoStart: true,
-      volume: 0.25,
-      playInBackground: PlayInBackground.disabledRestoreOnForeground,
-      respectSilentMode: true,
-      showNotification: false,
-    );
-
     _hudController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this)
       ..addListener(
         () => setState(
@@ -62,7 +52,7 @@ class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStat
       color: const Color(0xFF000000),
       child: GameControls(
         onTap: () {
-          _sfxAudioPlayer.play();
+          AudioPlayer.playSound;
           setState(() => _ikController.detecting = true);
         },
         onHover: (dynamic _moveOver) {
