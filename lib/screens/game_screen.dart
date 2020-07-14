@@ -10,8 +10,8 @@ import '../helpers/platform_detector.dart';
 import '../rive/ik_controller.dart';
 import '../rive/pseudo3D_widget.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key navKey}) : super(key: navKey);
+class Game extends StatefulWidget {
+  const Game({Key navKey}) : super(key: navKey);
   static final navKey = GlobalKey<NavigatorState>();
 
   static AssetProvider cache = AssetFlare(bundle: rootBundle, name: 'assets/animations/background.flr');
@@ -19,10 +19,10 @@ class MainScreen extends StatefulWidget {
   AssetProvider get _cache => cache;
 
   @override
-  _MyMainScreenState createState() => _MyMainScreenState();
+  _GameState createState() => _GameState();
 }
 
-class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
+class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   Animation<double> _pseudo3D, _depth;
   AnimationController _hudController;
   final IKController _ikController = IKController();
@@ -30,6 +30,7 @@ class _MyMainScreenState extends State<MainScreen> with SingleTickerProviderStat
 
   @override
   void initState() {
+    RivePseudo3DRenderObject.score = 0;
     super.initState();
     _hudController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this)
       ..addListener(

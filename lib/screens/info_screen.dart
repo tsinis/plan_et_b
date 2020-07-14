@@ -8,7 +8,7 @@ import '../widgets/button.dart';
 import '../widgets/dialog.dart';
 
 class InfoScreen extends StatelessWidget {
-  InfoScreen({Key key}) : super(key: key);
+  const InfoScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class InfoScreen extends StatelessWidget {
                                 style: FontEnchantments.text,
                                 textAlign: TextAlign.center),
                           ),
-                          const CyberButton(),
+                          const CyberButton(text: 'Play'),
                           Flexible(
                             child: AutoSizeText(
                                 "Move aim to look around, press to determine a planet's suitability for life. There is a dozen planets to check.",
@@ -102,7 +102,7 @@ class InfoScreen extends StatelessWidget {
                     icon: const Icon(Icons.info_outline),
                     onPressed: () => showDialog<void>(
                       context: context,
-                      builder: (BuildContext context) => const CyberDialog(about: true),
+                      builder: (BuildContext context) => const CyberDialog(),
                     ),
                   ),
                   IconButton(

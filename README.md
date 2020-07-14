@@ -101,7 +101,7 @@ flutter build apk --split-per-abi
 - [x] Create Pseudo-3D HUD.
 - [x] Add Sounds and Music.
 - [ ] Fix Audio on platforms other than Web and Android.
-- [ ] Add a Story and stylize the menus to Cyberpunk style.
+- [x] Add a Story and stylize the menus to Cyberpunk style.
 - [ ] Add Splash Screen and Icons.
 
 ## Licenses

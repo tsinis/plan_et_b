@@ -53,13 +53,12 @@ class RivePseudo3DWidget extends LeafRenderObjectWidget {
 class RivePseudo3DRenderObject extends FlareRenderBox {
   static ActorNode ikTarget;
   static int score = 0;
-  final BuildContext context = MainScreen.navKey.currentState.overlay.context;
+  final BuildContext context = Game.navKey.currentState.overlay.context;
   double _animationTime = 0, point, turn, pseudo3DDepth;
   Pseudo3DArtboard _artboard;
   final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/foreground.flr');
 
-  void _scoreDialog() =>
-      showDialog<void>(context: context, builder: (_) => CyberDialog(finalScore: score)).whenComplete(() => score = 0);
+  void _scoreDialog() => showDialog<void>(context: context, builder: (_) => CyberDialog(finalScore: score));
 
   ActorAnimation _foregroundLoop, _loadUI;
 

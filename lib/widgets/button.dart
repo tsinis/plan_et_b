@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/material.dart';
+
 import '../helpers/glitch_extension.dart';
 import '../screens/game_screen.dart';
+import '../screens/info_screen.dart';
 
 class CyberButton extends StatelessWidget {
-  const CyberButton({Key key, this.text = 'Play'}) : super(key: key);
+  const CyberButton({Key key, this.text = 'Back'}) : super(key: key);
   final String text;
   @override
   Widget build(BuildContext context) => InkWell(
@@ -21,8 +23,8 @@ class CyberButton extends StatelessWidget {
               textAlign: TextAlign.center),
         ),
       ),
-      onTap: () => (text == 'Back')
-          ? Navigator.pop(context)
-          : Navigator.push(
-              context, CupertinoPageRoute<Route>(fullscreenDialog: true, builder: (context) => const MainScreen())));
+      onTap: () => Navigator.push(
+          context,
+          CupertinoPageRoute<Route>(
+              fullscreenDialog: true, builder: (context) => ((text == 'Back') ? const InfoScreen() : const Game()))));
 }

@@ -7,7 +7,7 @@ import 'helpers/audio_player.dart';
 import 'screens/game_screen.dart';
 import 'screens/info_screen.dart';
 
-Future<void> get _cacheGame async => await cachedActor(MainScreen.cache);
+Future<void> get _cacheGame async => await cachedActor(Game.cache);
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,5 +23,5 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      MaterialApp(debugShowCheckedModeBanner: false, navigatorKey: MainScreen.navKey, home: InfoScreen());
+      MaterialApp(debugShowCheckedModeBanner: false, navigatorKey: Game.navKey, home: const InfoScreen());
 }
