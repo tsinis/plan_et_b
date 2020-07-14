@@ -100,7 +100,7 @@ Každopádně, tato hra byla vytvořena jako progresivní webové aplikace (PWA)
 - [x] Vytvořit jádro hry.
 - [x] Vytvořit pseudo-3D rozhraní.
 - [x] Přidat zvuky a hudbu.
-- [ ] Opravit zvuk na platformách jiných než Web a Android.
+- [x] Opravit zvuk na platformách jiných než Web a Android.
 - [x] Přidat Příběh a stylizovat nabídky do stylu kyberpunk.
 - [ ] Přidat úvodní obrazovku a ikonky.
 

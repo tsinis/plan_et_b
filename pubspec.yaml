@@ -1,5 +1,5 @@
 name: plan_et_b
-description: Indie philosophical PWA game made in Flutter for Hack20 Hackathon.
+description: Awarded PWA game made in Flutter for Hack20 Hackathon.
 
 environment:
   sdk: ">2.8.0"
@@ -10,7 +10,8 @@ dependencies:
 
   auto_size_text: any
   url_launcher: any
-  flare_flutter: ^2.0.5
+  # Rive is only working properly with version 2.0.4 on macOS builds
+  flare_flutter: 2.0.4
   assets_audio_player: ^2.0.8+2
   sa_stateless_animation: ^1.0.1
 
@@ -42,6 +43,5 @@ flutter:
     - family: Polentical Neon
       fonts:
         - asset: third-party/fonts/polentical-neon/Polentical Neon Regular.ttf
-
         # - asset: third-party/fonts/polentical-neon/Polentical Neon Italic.ttf
         #   style: italic
