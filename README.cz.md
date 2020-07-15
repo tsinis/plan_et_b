@@ -66,10 +66,11 @@ Díky [Codemagic](https://codemagic.io), stačí kliknout na tento odkaz a spust
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
 ### Jak hrát lokálně?
-Postupujte prosím podle následujících pokynů ve svém terminálu:
+Předpokládá se, že již máte nainstalovaný Flutter. Postupujte prosím podle následujících pokynů ve svém terminálu:
 ````markdown
 flutter channel master
 flutter upgrade
+flutter config --enable-macos-desktop
 git clone https://github.com/tsinis/plan_et_b.git
 cd plan_et_b
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
@@ -79,19 +80,30 @@ flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-d
 
 ### Jak to sestavit?
 
-Spusťte tyto příkazy ze složky projektu ve vašem terminálu:
+Předpokládá se, že již máte nainstalovaný Flutter verze 1.19 nebo vyšší. Spusťte tyto příkazy ze složky projektu ve vašem terminálu:
 
 * Pro web:
 ```
+flutter config --enable-web
 flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
+```
+
+* Pro macOS:
+```
+flutter config --enable-macos-desktop
+flutter build macos --release
 ```
 
 * Pro Android:
 ```
 flutter build apk --split-per-abi
 ```
+* Pro iOS:
+```
+flutter build ios --release --no-codesign
+```
 
-*Bohužel jiná zařízení (jako PC a Mac nebudou mít žádný zvuk ani hudbu, protože jsem nenašel žádný vhodný plugin). Můžete hru sestavit pro tyto platformy bez jakýchkoli chyb při kompilaci jenom po odebrání balíčku audio přehrávače z kódu. Na tomto problému pracuji (viz Úkoly níže).*
+*Bohužel na PC (Windows a Linux) nebude žádný zvuk ani hudba, protože jsem nenašel žádný vhodný plugin pro tyto platformy. Můžete hru sestavit pro tyto platformy bez jakýchkoli chyb při kompilaci jenom po odebrání balíčku audio přehrávače z kódu.*
 
 Každopádně, tato hra byla vytvořena jako progresivní webové aplikace (PWA), není tedy důvod mít nativní aplikaci, protože hru můžete nainstalovat z prohlížeče na téměř jakémkoli zařízení.
 
@@ -129,7 +141,7 @@ je licencován na základě licence [CC BY 3.0](https://creativecommons.org/lice
 
 ## Vydání
 
-Binární spouštěcí soubory najdete v části [Releases](https://github.com/tsinis/plan_et_b/releases) tohoto repozitáře GitHub. Po opravě zvukového přehrávače, postupně přidám další binární soubory pro ostatní platformy.
+Binární spouštěcí soubory pro Android, macOS a Web najdete v části [Releases](https://github.com/tsinis/plan_et_b/releases) tohoto repozitáře GitHub.
 
 ## Technická data
 
@@ -154,6 +166,6 @@ Binární spouštěcí soubory najdete v části [Releases](https://github.com/t
 | Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | [Rive](https://rive.app) (bývalé Flare) |
 | Balíček závislosti třetí strany | [flare_flutter](https://pub.dev/packages/flare_flutter) |
-| Verze závislosti třetí strany | [any](https://github.com/2d-inc/Flare-Flutter) |
+| Verze závislosti třetí strany | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
 | Kanál závislosti třetí strany | stabilní |
 | Architektura | Vanilla |

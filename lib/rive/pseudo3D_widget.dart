@@ -58,7 +58,11 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
   Pseudo3DArtboard _artboard;
   final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/foreground.flr');
 
-  void _scoreDialog() => showDialog<void>(context: context, builder: (_) => CyberDialog(finalScore: score));
+  void _scoreDialog() => showDialog<void>(
+      barrierDismissible: false,
+      useRootNavigator: false,
+      context: context,
+      builder: (_) => CyberDialog(finalScore: score));
 
   ActorAnimation _foregroundLoop, _loadUI;
 

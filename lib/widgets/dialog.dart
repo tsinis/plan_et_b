@@ -54,7 +54,7 @@ class _ScoreContent extends StatelessWidget {
                 children: [
                   TextSpan(
                       text: _planetBText,
-                      style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0)),
+                      style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
                 ],
               ),
             ),

@@ -111,7 +111,7 @@ class InfoScreen extends StatelessWidget {
                       color: const Color(0xFF09cad9),
                       tooltip: 'Play/Stop Music. There is short delay, please wait for it',
                       icon: const Icon(Icons.music_note),
-                      onPressed: () => AudioPlayer.playPauseMusic),
+                      onPressed: () => AudioPlayer.playPauseMusic)
                 ],
               ),
             ),

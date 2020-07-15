@@ -31,6 +31,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     RivePseudo3DRenderObject.score = 0;
+    // AudioPlayer.playVoice;
     super.initState();
     _hudController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this)
       ..addListener(
@@ -93,7 +94,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
             ),
             Positioned.fill(
               child: RivePseudo3DWidget(point: _point, turn: _turn, depth: _depth?.value ?? 0.0),
-            ),
+            )
           ],
         ),
       ),

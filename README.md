@@ -66,10 +66,11 @@ Thanks to [Codemagic](https://codemagic.io), you can just follow this link and r
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
 ### How to play it locally?
-Please follow this commands in your terminal:
+The Flutter is expected to be installed. Please follow this commands in your terminal:
 ````markdown
 flutter channel master
 flutter upgrade
+flutter config --enable-macos-desktop
 git clone https://github.com/tsinis/plan_et_b.git
 cd plan_et_b
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
@@ -79,19 +80,29 @@ flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-d
 
 ### How to build it?
 
-Please run this command from the project's folder, in your terminal:
+Flutter version 1.19 or higher is assumed to be installed. Please run this command from the project's folder, in your terminal:
 
-* For web:
+* For Web:
 ```
+flutter config --enable-web
 flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
+```
+* For macOS:
+```
+flutter config --enable-macos-desktop
+flutter build macos --release
 ```
 
 * For Android:
 ```
 flutter build apk --split-per-abi
 ```
+* For iOS:
+```
+flutter build ios --release --no-codesign
+```
 
- *Sadly other devices (like PCs and Macs will have no sound and music, because I didn't found any good plugin for it). You can build it for those platforms without any compile errors just after removing the audio player package from the code. I'm working on this Issue (see To-Do Section below).*
+ *Sadly PCs (Windows and Linux) will have no sound and music, because I didn't found any good plugin for it. You can build it for those platforms without any compile errors just after removing the audio player package from the code.*
 
  Anyways this game was made to be a PWA, so there is no reason to have a native app, since you can install it from a browser, on almost any recent device.
 
@@ -129,7 +140,7 @@ is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 
 ## Releases
 
-You can find binaries for Android and Web in [Releases](https://github.com/tsinis/plan_et_b/releases) section of this GitHub repository. I will add other platform binaries gradually, after the audio player fixes.
+You can find binaries for Android, macOS and Web in [Releases](https://github.com/tsinis/plan_et_b/releases) section of this GitHub repository.
 
 ## Technical Data
 
@@ -154,6 +165,6 @@ You can find binaries for Android and Web in [Releases](https://github.com/tsini
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | [Rive](https://rive.app) (ex Flare) |
 | 3rd-party Dependency package | [flare_flutter](https://pub.dev/packages/flare_flutter) |
-| 3rd-party Dependency version | [any](https://github.com/2d-inc/Flare-Flutter) |
+| 3rd-party Dependency version | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
 | 3rd-party Dependency channel | stable |
 | Architecture | Vanilla |

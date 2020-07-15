@@ -67,10 +67,11 @@
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
 ### Как запустить локально?
-Для этого, просто введите следующие команды в терминале:
+Предполагается установленный Flutter. Для этого, просто введите следующие команды в терминале:
 ````markdown
 flutter channel master
 flutter upgrade
+flutter config --enable-macos-desktop
 git clone https://github.com/tsinis/plan_et_b.git
 cd plan_et_b
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
@@ -81,11 +82,17 @@ flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-d
 
 ### Как собрать?
 
-Для этого, просто введите следующие команды, из папки проекта в терминале:
+Предполагается установленная версия Flutter версии 1.19 или выше. И так, просто введите следующие команды, из папки проекта в терминале:
 
 * Для Веба:
 ```
+flutter config --enable-web
 flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
+```
+* Для macOS:
+```
+flutter config --enable-macos-desktop
+flutter build macos --release
 ```
 
 * Для Андроид:
@@ -93,7 +100,12 @@ flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-defin
 flutter build apk --split-per-abi
 ```
 
-*К сожалению, другие устройства (такие как PC и Mac) не будут иметь ни звука, ни музыки, потому что я не нашел для этого хорошего плагина). Вы можете собрать игру для этих платформ без ошибок компиляции только после удаления из кода пакета аудио-плеера. Я работаю над этой проблемой (см. Список дел, ниже).*
+* Для iOS:
+```
+flutter build ios --release --no-codesign
+```
+
+*К сожалению на PC (Windows и Linux) не будет ни звука, ни музыки, потому что я не нашел для этих платформ хорошего плагина. Вы можете собрать игру для этих платформ без ошибок компиляции только после удаления из кода пакета аудио-плеера.*
 
  В любом случае, эта игра была сделана как прогрессивное веб-приложение, так что нет особых причин иметь нативное приложение, так как вы можете установить игру прямо из браузера, практически на любом современном устройстве.
 
@@ -132,7 +144,7 @@ flutter build apk --split-per-abi
 
 ## Релизы
 
-Вы можете найти бинарники (исполняемые файлы), для платформы Андроид и Веб в разделе [Releases](https://github.com/tsinis/plan_et_b/releases) этого репозитория GitHub. Я буду добавлять их постепенно, после того, как исправлю аудио-плеер.
+Вы можете найти бинарники (исполняемые файлы), для платформы Андроид, macOS и Веб в разделе [Releases](https://github.com/tsinis/plan_et_b/releases) этого репозитория GitHub.
 
 ## Технические данные
 
@@ -157,6 +169,6 @@ flutter build apk --split-per-abi
 | Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | [Rive](https://rive.app) (бывшее Flare) |
 | Пакет сторонней зависимости | [flare_flutter](https://pub.dev/packages/flare_flutter) |
-| Версия сторонней зависимости | [any](https://github.com/2d-inc/Flare-Flutter) |
+| Версия сторонней зависимости | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
 | Канал сторонней зависимости | стабильный |
 | Архитектура | Vanilla |

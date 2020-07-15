@@ -49,7 +49,7 @@ class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
 
   void _glitch() {
     stopped = !stopped;
-    stopped ? _animationController.reset() : _animationController.forward();
+    stopped ? _animationController.reset() : _animationController.forward(from: 0.7);
   }
 
   @override

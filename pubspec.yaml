@@ -29,6 +29,7 @@ flutter:
     - assets/animations/background.flr
     - assets/audio/music/SCI_FI_HORROR_OPENING_MASTERED.mp3
     - assets/audio/sfx/431732__sieuamthanh__beam-11.wav
+    # - assets/audio/voice/voice.mp3
     - assets/images/StarfieldSimulation_rot.gif
 
   fonts:

@@ -58,7 +58,7 @@ class Pseudo3DArtboard extends FlutterActorArtboard {
         }
 
         Matrix4 pseudo3DTransform = Matrix4.copy(_transform);
-        // 3D depth can be change here:
+        // 3D depth can be changed here:
         pseudo3DTransform.multiply(Matrix4.translationValues(0, 0, -100 - _index * 25 * _pseudo3DDepth));
         (_drawable as _Pseudo3DDrawable).pseudo3DTransform = pseudo3DTransform;
       }
