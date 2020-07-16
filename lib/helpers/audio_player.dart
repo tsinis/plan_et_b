@@ -29,3 +29,7 @@ class AudioPlayer {
 
   // static Future<void> get playVoice async => await _voiceAudioPlayer.play();
 }
+
+// static void get playSound =>
+//     AssetsAudioPlayer.playAndForget(Audio('assets/audio/sfx/431732__sieuamthanh__beam-11.wav'),
+//         volume: 0.25, respectSilentMode: true);

@@ -1,6 +1,7 @@
 import 'package:flare_flutter/asset_provider.dart' show AssetProvider;
 import 'package:flare_flutter/flare_actor.dart' show FlareActor;
 import 'package:flare_flutter/provider/asset_flare.dart' show AssetFlare;
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
@@ -27,6 +28,25 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   AnimationController _hudController;
   final IKController _ikController = IKController();
   double _point = 0.0, _turn = 0.0;
+  bool _barDissmised = true;
+
+  void _setFlushbarStatus(FlushbarStatus _status) => _barDissmised = (_status == FlushbarStatus.DISMISSED);
+
+  void get _detect {
+    AudioPlayer.playSound;
+    setState(() => _ikController.detecting = true);
+    if (_barDissmised) {
+      _barDissmised = false;
+      Future.delayed(
+          const Duration(seconds: 1),
+          () => Flushbar<void>(
+                maxWidth: 400,
+                onStatusChanged: _setFlushbarStatus,
+                message: 'No Life Detected',
+                duration: const Duration(milliseconds: 1200),
+              )..show(context));
+    }
+  }
 
   @override
   void initState() {
@@ -53,10 +73,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
     return Container(
       color: const Color(0xFF000000),
       child: GameControls(
-        onTap: () {
-          AudioPlayer.playSound;
-          setState(() => _ikController.detecting = true);
-        },
+        onTap: () => _detect,
         onHover: (dynamic _moveOver) {
           _point += _moveOver.delta.dy * (0.1 / _size.height) as num;
           _turn -= _moveOver.delta.dx * (0.1 / _size.width) as num;
