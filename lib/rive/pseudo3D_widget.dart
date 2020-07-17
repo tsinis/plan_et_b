@@ -56,7 +56,7 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
   final BuildContext context = Game.navKey.currentState.overlay.context;
   double _animationTime = 0, point, turn, pseudo3DDepth;
   Pseudo3DArtboard _artboard;
-  final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/foreground.flr');
+  final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/HUD.flr');
 
   void _scoreDialog() => showDialog<void>(
       barrierDismissible: false,

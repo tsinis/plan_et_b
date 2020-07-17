@@ -1,8 +1,8 @@
 import 'package:flare_flutter/asset_provider.dart' show AssetProvider;
 import 'package:flare_flutter/flare_actor.dart' show FlareActor;
 import 'package:flare_flutter/provider/asset_flare.dart' show AssetFlare;
-import 'package:flushbar/flushbar.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 
@@ -10,12 +10,13 @@ import '../helpers/audio_player.dart';
 import '../helpers/platform_detector.dart';
 import '../rive/ik_controller.dart';
 import '../rive/pseudo3D_widget.dart';
+import '../widgets/info_bar.dart';
 
 class Game extends StatefulWidget {
   const Game({Key navKey}) : super(key: navKey);
   static final navKey = GlobalKey<NavigatorState>();
 
-  static AssetProvider cache = AssetFlare(bundle: rootBundle, name: 'assets/animations/background.flr');
+  static AssetProvider cache = AssetFlare(bundle: rootBundle, name: 'assets/animations/Cockpit.flr');
 
   AssetProvider get _cache => cache;
 
@@ -29,22 +30,31 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   final IKController _ikController = IKController();
   double _point = 0.0, _turn = 0.0;
   bool _barDissmised = true;
-
-  void _setFlushbarStatus(FlushbarStatus _status) => _barDissmised = (_status == FlushbarStatus.DISMISSED);
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void get _detect {
     AudioPlayer.playSound;
     setState(() => _ikController.detecting = true);
     if (_barDissmised) {
       _barDissmised = false;
-      Future.delayed(
-          const Duration(seconds: 1),
-          () => Flushbar<void>(
-                maxWidth: 400,
-                onStatusChanged: _setFlushbarStatus,
-                message: 'No Life Detected',
-                duration: const Duration(milliseconds: 1200),
-              )..show(context));
+      Future<dynamic>.delayed(
+        const Duration(seconds: 1),
+        () => _scaffoldKey.currentState.showSnackBar(
+          SnackBar(
+            shape: const BeveledRectangleBorder(
+                side: BorderSide(color: Colors.blueGrey),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25.0),
+                    topRight: Radius.circular(5.0),
+                    bottomRight: Radius.circular(10.0))),
+            backgroundColor: const Color(0x4d084e79),
+            content: const DetectorInfo(),
+            width: 320.0,
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(milliseconds: 1400),
+          ),
+        ),
+      ).whenComplete(() => _barDissmised = true);
     }
   }
 
@@ -70,9 +80,10 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
-    return Container(
-      color: const Color(0xFF000000),
-      child: GameControls(
+    return Scaffold(
+      key: _scaffoldKey,
+      backgroundColor: Colors.black,
+      body: GameControls(
         onTap: () => _detect,
         onHover: (dynamic _moveOver) {
           _point += _moveOver.delta.dy * (0.1 / _size.height) as num;

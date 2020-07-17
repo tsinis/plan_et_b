@@ -11,11 +11,10 @@ dependencies:
 
   auto_size_text: any
   url_launcher: any
-  flushbar: any
-  # Rive is only working properly with version 2.0.4 on macOS builds
-  flare_flutter: 2.0.4
   assets_audio_player: ^2.0.8+2
   sa_stateless_animation: ^1.0.1
+  # Rive is only working properly with version 2.0.4 on macOS builds
+  flare_flutter: 2.0.4
 
 dev_dependencies:
   # flutter_test:
@@ -27,8 +26,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/animations/foreground.flr
-    - assets/animations/background.flr
+    - assets/animations/HUD.flr
+    - assets/animations/Cockpit.flr
     - assets/audio/music/SCI_FI_HORROR_OPENING_MASTERED.mp3
     - assets/audio/sfx/431732__sieuamthanh__beam-11.wav
     # - assets/audio/voice/voice.mp3

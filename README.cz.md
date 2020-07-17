@@ -18,7 +18,7 @@
 
 ## Popis
 
-V této větvi najdete **aktualizovanou verzi**  mého **oceněného příspěveku** v **oficiálním, dvoudenním, mezinárodním hackathonu Společenství Flutter** s názvem „***#Hack20***“.
+V této větvi najdete **aktualizovanou verzi**  mého **vítězného příspěveku** v **oficiálním, dvoudenním, mezinárodním hackathonu Společenství Flutter** s názvem „***#Hack20***“.
 > **Pozor:** V sousední větvi naleznete originální verzi, která byla poslána do hackathonu.
 
 Hackaton měl **přes 2665 účastníků, 650 týmů**, s 266 projekty. Psaní kódu se řídilo pravidly hackathonu, seznam dalších výherců a další informace o pravidlech najdete na oficiálních stránkách: [flutterhackathon.com](https://flutterhackathon.com)
