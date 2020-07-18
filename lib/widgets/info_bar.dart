@@ -28,7 +28,9 @@ class DetectorInfo extends StatelessWidget {
             TextSpan(
                 text: '${(_random / 5).round().toString()}%',
                 style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.deepOrange)),
-            const TextSpan(text: ' NO LIFE POSSIBLE!')
+            TextSpan(
+                text: ' NO LIFE POSSIBLE!',
+                style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.redAccent[100])),
           ],
         ),
       );

@@ -67,7 +67,7 @@
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
 ### Как запустить локально?
-Предполагается установленный Flutter. Для этого, просто введите следующие команды в терминале:
+Предполагается установленный Flutter и браузер Chrome/Chromium. Для этого, просто введите следующие команды в терминале:
 ````markdown
 flutter channel master
 flutter upgrade

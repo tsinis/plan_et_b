@@ -37,8 +37,8 @@ class _ScoreContent extends StatelessWidget {
       : 'You have checked $_finalScore/12 planets but,\n\n';
 
   String get _planetBText => (_finalScore > 11)
-      ? "There is no planet B!\nSo let's take care of this one.\n\n"
-      : "Didn't find a Planet B suitable for life.\nTry once more.\n\n";
+      ? "there is no planet B!\nSo let's take care of this one.\n\n"
+      : "didn't find a Planet B suitable for life.\nTry once more.\n\n";
 
   @override
   Widget build(BuildContext context) => Column(

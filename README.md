@@ -66,7 +66,7 @@ Thanks to [Codemagic](https://codemagic.io), you can just follow this link and r
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
 ### How to play it locally?
-The Flutter is expected to be installed. Please follow this commands in your terminal:
+The Flutter and Chrome/Chromium Browser is expected to be installed. Please follow this commands in your terminal:
 ````markdown
 flutter channel master
 flutter upgrade

@@ -66,7 +66,7 @@ Díky [Codemagic](https://codemagic.io), stačí kliknout na tento odkaz a spust
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
 ### Jak hrát lokálně?
-Předpokládá se, že již máte nainstalovaný Flutter. Postupujte prosím podle následujících pokynů ve svém terminálu:
+Předpokládá se, že již máte nainstalovaný Flutter a prohlížeč Chrome/Chromium. Postupujte prosím podle následujících pokynů ve svém terminálu:
 ````markdown
 flutter channel master
 flutter upgrade
