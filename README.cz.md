@@ -114,7 +114,7 @@ Každopádně, tato hra byla vytvořena jako progresivní webové aplikace (PWA)
 - [x] Přidat zvuky a hudbu.
 - [x] Opravit zvuk na platformách jiných než Web a Android.
 - [x] Přidat Příběh a stylizovat nabídky do stylu kyberpunk.
-- [ ] Přidat úvodní obrazovku a ikonky.
+- [x] Přidat úvodní obrazovku a ikonky.
 
 ## Licence
 Kód je licencován na základě [MIT licence](./LICENSE), podklady (jako zvuky, animace a písma) jsou licencovány s CC licenci. Soubor s názvem **LICENSE** najdete uvnitř adresářů, který obsahuje kopii licence, s plným textem této licence, v anglickém jazyce.

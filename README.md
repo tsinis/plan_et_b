@@ -113,7 +113,7 @@ flutter build ios --release --no-codesign
 - [x] Add Sounds and Music.
 - [x] Fix Audio on platforms other than Web and Android.
 - [x] Add a Story and stylize the menus to Cyberpunk style.
-- [ ] Add Splash Screen and Icons.
+- [x] Add Splash Screen and Icons.
 
 ## Licenses
 This project is released under the terms of the [MIT license](./LICENSE). All assets (as sounds, animations, and fonts) are CC licensed and are free for personal use. You can find **LICENSE** files in their folders.

@@ -1,5 +1,6 @@
 name: plan_et_b
 description: Awarded PWA game made in Flutter for Hack20 Hackathon.
+version: 2.0.0
 
 environment:
   sdk: ">2.8.0"
@@ -21,6 +22,7 @@ dev_dependencies:
   #   sdk: flutter
   pedantic: any
   effective_dart: any
+  flutter_launcher_icons: any
 
 flutter:
   uses-material-design: true
