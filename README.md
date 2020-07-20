@@ -1,6 +1,6 @@
 ﻿﻿:globe_with_meridians:  **<u>english</u>**  |   [český](README.cz.md)	|   [русский](README.ru.md)
 
-# Plan-et-B (PWA Game) 🪐
+# Plan-et-B (PWA Game) 🚀
 
 ## Table of content:
 * [Description](#Description)
@@ -38,7 +38,7 @@ Your mission is to, **fly around the space, looking for so-called "Planet B" and
 
 You can watch a **preview video of it (with main functionality highlight) here:**
 
-**[Gameplay on YouTube](https://youtu.be/_hoEp9jGoLc)**
+[![Plan-et B](https://i.vimeocdn.com/video/927377809_1920x1080.jpg)](https://vimeo.com/tsinis/hack20)[Vimeo](https://vimeo.com/tsinis/hack20) or [YouTube](https://youtu.be/I6B1PfaIxM4)
 
 <details>
   <summary>Spoiler about Gameplay</summary>
@@ -147,24 +147,32 @@ You can find binaries for Android, macOS and Web in [Releases](https://github.co
 | Name | Description |
 | ---- | ----------- |
 | **Framework name** | [Flutter](https://flutter.dev) |
-| Framework version | [1.20.0-3.0.pre.78](https://github.com/flutter/flutter) |
+| Framework version | [1.21.0-2.0.pre.60](https://github.com/flutter/flutter) |
 | Framework channel | master |
 | **Language name** | [Dart](https://dart.dev) |
 | Language version | [2.9.0](https://github.com/dart-lang) |
 | Language channel | beta |
 | **IDE name** | [Visual Studio Code](https://code.visualstudio.com/insiders/) |
-| IDE version | [1.47.0](https://github.com/microsoft/vscode) |
+| IDE version | [1.49.0](https://github.com/microsoft/vscode) |
 | IDE channel | insider |
 | 3rd-party Dependency name | Auto Size Text|
 | 3rd-party Dependency package | [auto_size_text](https://pub.dev/packages/auto_size_text) |
-| 3rd-party Dependency version | [any](https://github.com/leisim/auto_size_text) |
+| 3rd-party Dependency version | [2.1.0](https://github.com/leisim/auto_size_text) |
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | Assets Audio Player |
 | 3rd-party Dependency package | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
-| 3rd-party Dependency version | [any](https://github.com/florent37/Flutter-AudioPlayer) |
+| 3rd-party Dependency version | [2.0.8+2](https://github.com/florent37/Flutter-AudioPlayer) |
 | 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | [Rive](https://rive.app) (ex Flare) |
 | 3rd-party Dependency package | [flare_flutter](https://pub.dev/packages/flare_flutter) |
 | 3rd-party Dependency version | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
+| 3rd-party Dependency channel | stable |
+| 3rd-party Dependency name | URL Launcher |
+| 3rd-party Dependency package | [url_launcher](https://pub.dev/packages/url_launcher) |
+| 3rd-party Dependency version | [5.5.0](https://github.com/flutter/plugins) |
+| 3rd-party Dependency channel | stable |
+| 3rd-party Dependency name | Stateless Animation |
+| 3rd-party Dependency package | [sa_stateless_animation](https://pub.dev/packages/sa_stateless_animation) |
+| 3rd-party Dependency version | [1.0.1](https://github.com/felixblaschke/sa_stateless_animation) |
 | 3rd-party Dependency channel | stable |
 | Architecture | Vanilla |

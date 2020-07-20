@@ -7,7 +7,7 @@ class AudioPlayer {
 
   static Future<void> get cacheAudio async {
     await _musicAudioPlayer.open(Audio('assets/audio/music/SCI_FI_HORROR_OPENING_MASTERED.mp3'),
-        loopMode: LoopMode.single, autoStart: false, volume: 0.05, respectSilentMode: true, showNotification: false);
+        loopMode: LoopMode.single, autoStart: false, volume: 0.1, respectSilentMode: true, showNotification: false);
     await _sfxAudioPlayer.open(Audio('assets/audio/sfx/431732__sieuamthanh__beam-11.wav'),
         autoStart: false,
         volume: 0.15,
@@ -23,7 +23,10 @@ class AudioPlayer {
         showNotification: false);
   }
 
-  static Future<void> get playPauseMusic async => await _musicAudioPlayer.playOrPause();
+  static Future<void> get playPauseMusic async {
+    await _musicAudioPlayer.playOrPause();
+    await _voiceAudioPlayer.stop();
+  }
 
   static Future<void> get playSound async => await _sfxAudioPlayer.play();
 

@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  auto_size_text: any
-  url_launcher: any
+  auto_size_text: ^2.1.0
+  url_launcher: ^5.5.0
   assets_audio_player: ^2.0.8+2
   sa_stateless_animation: ^1.0.1
   # Rive is only working properly with version 2.0.4 on macOS builds
@@ -22,7 +22,7 @@ dev_dependencies:
   #   sdk: flutter
   pedantic: any
   effective_dart: any
-  flutter_launcher_icons: any
+  # flutter_launcher_icons: any
 
 flutter:
   uses-material-design: true
