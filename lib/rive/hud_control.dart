@@ -6,28 +6,28 @@ import 'package:flare_dart/actor_shape.dart';
 import 'package:flare_flutter/flare.dart';
 import 'package:flutter/widgets.dart';
 
-class Pseudo3DActor extends FlutterActor {
-  Pseudo3DActor(FlutterActor _source) {
+class Pseudo3dHudActor extends FlutterActor {
+  Pseudo3dHudActor(FlutterActor _source) {
     copyFlutterActor(_source);
   }
 
   @override
-  ActorArtboard makeArtboard() => Pseudo3DArtboard(this);
+  ActorArtboard makeArtboard() => Pseudo3dHudArtboard(this);
 
   @override
-  ActorImage makeImageNode() => _Pseudo3DActorImage();
+  ActorImage makeImageNode() => _Pseudo3dHudActorImage();
 
   @override
-  ActorShape makeShapeNode(ActorShape source) => _Pseudo3DActorShape();
+  ActorShape makeShapeNode(ActorShape source) => _Pseudo3dHudActorShape();
 
-  static Pseudo3DArtboard instanceArtboard(FlutterActor _source) {
-    Pseudo3DActor pseudo3DActor = Pseudo3DActor(_source);
-    return _source.artboard.makeInstanceWithActor(pseudo3DActor) as Pseudo3DArtboard;
+  static Pseudo3dHudArtboard instanceArtboard(FlutterActor _source) {
+    Pseudo3dHudActor pseudo3DActor = Pseudo3dHudActor(_source);
+    return _source.artboard.makeInstanceWithActor(pseudo3DActor) as Pseudo3dHudArtboard;
   }
 }
 
-class Pseudo3DArtboard extends FlutterActorArtboard {
-  Pseudo3DArtboard(FlutterActor _actor) : super(_actor);
+class Pseudo3dHudArtboard extends FlutterActorArtboard {
+  Pseudo3dHudArtboard(FlutterActor _actor) : super(_actor);
 
   void setPseudo3D(double _point, double _roll, double _pseudo3DDepth) {
     Matrix4 _transform = Matrix4.identity();
@@ -70,7 +70,7 @@ class _Pseudo3DDrawable {
   Matrix4 pseudo3DTransform;
 }
 
-class _Pseudo3DActorShape extends FlutterActorShape implements _Pseudo3DDrawable {
+class _Pseudo3dHudActorShape extends FlutterActorShape implements _Pseudo3DDrawable {
   @override
   Matrix4 pseudo3DTransform;
 
@@ -83,7 +83,7 @@ class _Pseudo3DActorShape extends FlutterActorShape implements _Pseudo3DDrawable
   }
 }
 
-class _Pseudo3DActorImage extends FlutterActorImage implements _Pseudo3DDrawable {
+class _Pseudo3dHudActorImage extends FlutterActorImage implements _Pseudo3DDrawable {
   @override
   Matrix4 pseudo3DTransform;
 

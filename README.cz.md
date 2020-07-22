@@ -154,26 +154,24 @@ Binární spouštěcí soubory pro Android, macOS a Web najdete v části [Relea
 | Verze jazyka | [2.9.0](https://github.com/dart-lang) |
 | Kanál jazyka | beta |
 | **Název vývojového prostředí** | [Visual Studio Code](https://code.visualstudio.com/insiders/) |
-| Verze vývojového prostředí | [1.49.0](https://github.com/microsoft/vscode) |
+| Verze vývojového prostředí | [1.48.0](https://github.com/microsoft/vscode) |
 | Kanál vývojového prostředí | předběžný |
 | Název závislosti třetí strany | Auto Size Text|
 | Balíček závislosti třetí strany | [auto_size_text](https://pub.dev/packages/auto_size_text) |
 | Verze závislosti třetí strany | [2.1.0](https://github.com/leisim/auto_size_text) |
-| Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | Assets Audio Player |
 | Balíček závislosti třetí strany | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
 | Verze závislosti třetí strany | [2.0.8+2](https://github.com/florent37/Flutter-AudioPlayer) |
-| Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | [Rive](https://rive.app) (bývalé Flare) |
 | Balíček závislosti třetí strany | [flare_flutter](https://pub.dev/packages/flare_flutter) |
 | Verze závislosti třetí strany | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
-| Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | URL Launcher |
 | Balíček závislosti třetí strany | [url_launcher](https://pub.dev/packages/url_launcher) |
 | Verze závislosti třetí strany | [5.5.0](https://github.com/flutter/plugins) |
-| Kanál závislosti třetí strany | stabilní |
 | Název závislosti třetí strany | Stateless Animation |
-| Balíček závislosti třetí strany | [sa_stateless_animation](https://pub.dev/packages/sa_stateless_animation) |
+| Balíček závislosti třetí strany | [sa_stateless_animation](https://pub.dev/packages/sa_stateless_animation)|
 | Verze závislosti třetí strany | [1.0.1](https://github.com/felixblaschke/sa_stateless_animation) |
-| Kanál závislosti třetí strany | stabilní |
+| Název závislosti třetí strany | Flutter Phoenix |
+| Balíček závislosti třetí strany | [flutter_phoenix](https://pub.dev/packages/flutter_phoenix) |
+| Verze závislosti třetí strany | [0.1.0](https://github.com/mobiten/flutter_phoenix) |
 | Architektura | Vanilla |

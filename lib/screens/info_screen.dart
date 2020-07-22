@@ -98,20 +98,18 @@ class InfoScreen extends StatelessWidget {
                     iconSize: 40.0,
                     padding: const EdgeInsets.all(12.0),
                     color: const Color(0x9909cad9),
-                    tooltip: 'About',
+                    tooltip: 'About this game.',
                     icon: const Icon(Icons.info_outline),
-                    onPressed: () => showDialog<void>(
-                      context: context,
-                      builder: (BuildContext context) => const CyberDialog(),
-                    ),
+                    onPressed: () =>
+                        showDialog<void>(context: context, builder: (BuildContext context) => const CyberDialog()),
                   ),
                   IconButton(
                       iconSize: 40.0,
                       padding: const EdgeInsets.all(12.0),
                       color: const Color(0xFF09cad9),
-                      tooltip: 'Play/Stop Music. There is short delay, please wait for it',
+                      tooltip: 'Play/Pause Music. There is short delay, please wait for it.',
                       icon: const Icon(Icons.music_note),
-                      onPressed: () => AudioPlayer.playPauseMusic)
+                      onPressed: () => AudioPlayer.playOrPauseMusic)
                 ],
               ),
             ),

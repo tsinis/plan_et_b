@@ -7,15 +7,16 @@ import 'package:flare_flutter/flare_controller.dart';
 import 'package:flare_dart/math/mat2d.dart' show Mat2D;
 import 'package:flare_dart/math/vec2d.dart' show Vec2D;
 
-import 'pseudo3D_widget.dart';
+import 'cockpit_control.dart';
 
 class IKController implements FlareController {
   bool detecting = false;
+
+  double _animationTime = 0, _detectTime = 0;
+  ActorAnimation _backgroundLoop, _detect;
   ActorNode _ikTarget;
   Offset _screenTouch;
   Mat2D _viewTransform;
-  ActorAnimation _backgroundLoop, _detect;
-  double _animationTime = 0, _detectTime = 0;
 
   @override
   ValueNotifier<bool> isActive;
@@ -24,7 +25,7 @@ class IKController implements FlareController {
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_detectTime >= _detect.duration) {
       _detectTime = 0;
-      RivePseudo3DRenderObject.score++;
+      CockpitControl.increaseScore();
       detecting = false;
     } else if (detecting) {
       _detectTime += elapsed;
@@ -52,9 +53,9 @@ class IKController implements FlareController {
     }
 
     Vec2D localTouchCoordinates = Vec2D();
-    Vec2D.transformMat2D(localTouchCoordinates, worldTouch, inverseTargetWorld);
+    Vec2D.transformMat2D(localTouchCoordinates ?? Vec2D.fromValues(0, 0), worldTouch, inverseTargetWorld);
 
-    RivePseudo3DRenderObject.ikTarget.translation = _ikTarget.translation = localTouchCoordinates;
+    CockpitControl.ikTarget.translation = _ikTarget.translation = localTouchCoordinates ?? Vec2D.fromValues(0, 0);
     return true;
   }
 
@@ -65,8 +66,8 @@ class IKController implements FlareController {
     _detect = _artboard.getAnimation('detect');
   }
 
+  void moveAim(Offset _offset) => _screenTouch = _offset;
+
   @override
   void setViewTransform(Mat2D viewTransform) => _viewTransform = viewTransform;
-
-  void moveAim(Offset _offset) => _screenTouch = _offset;
 }

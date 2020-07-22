@@ -42,28 +42,30 @@ class _ScoreContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                text: _scoreText,
-                style: FontEnchantments.text,
-                children: [
-                  TextSpan(
-                      text: _planetBText,
-                      style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
-                ],
-              ),
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              text: _scoreText,
+              style: FontEnchantments.text,
+              children: [
+                TextSpan(
+                    text: _planetBText,
+                    style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
+              ],
             ),
-            const CyberButton()
-          ]);
+          ),
+          const CyberButton(text: 'Play Again')
+        ],
+      );
 }
 
 class _AboutContent extends StatelessWidget {
   const _AboutContent({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.max,

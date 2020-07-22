@@ -162,21 +162,19 @@ flutter build ios --release --no-codesign
 | Название сторонней зависимости | Auto Size Text|
 | Пакет сторонней зависимости | [auto_size_text](https://pub.dev/packages/auto_size_text) |
 | Версия сторонней зависимости | [2.1.0](https://github.com/leisim/auto_size_text) |
-| Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | Assets Audio Player |
 | Пакет сторонней зависимости | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
 | Версия сторонней зависимости | [2.0.8+2](https://github.com/florent37/Flutter-AudioPlayer) |
-| Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | [Rive](https://rive.app) (бывшее Flare) |
 | Пакет сторонней зависимости | [flare_flutter](https://pub.dev/packages/flare_flutter) |
 | Версия сторонней зависимости | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
-| Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | URL Launcher |
 | Пакет сторонней зависимости | [url_launcher](https://pub.dev/packages/url_launcher) |
 | Версия сторонней зависимости | [5.5.0](https://github.com/flutter/plugins) |
-| Канал сторонней зависимости | стабильный |
 | Название сторонней зависимости | Stateless Animation |
 | Пакет сторонней зависимости | [sa_stateless_animation](https://pub.dev/packages/sa_stateless_animation) |
 | Версия сторонней зависимости | [1.0.1](https://github.com/felixblaschke/sa_stateless_animation) |
-| Канал сторонней зависимости | стабильный |
+| Название сторонней зависимости | Flutter Phoenix |
+| Пакет сторонней зависимости | [flutter_phoenix](https://pub.dev/packages/flutter_phoenix) |
+| Версия сторонней зависимости | [0.1.0](https://github.com/mobiten/flutter_phoenix) |
 | Архитектура | Vanilla |

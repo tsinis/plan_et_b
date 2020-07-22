@@ -119,7 +119,6 @@ class _Attribution extends StatelessWidget {
                         text: license,
                         style: FontEnchantments.text.copyWith(
                             decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16.0)),
-                    // const TextSpan(text: '\n'),
                   ],
                 ),
               ),

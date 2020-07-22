@@ -1,15 +1,46 @@
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
+import '../helpers/audio_player.dart';
 
 import '../helpers/glitch_extension.dart';
+import '../rive/cockpit_control.dart';
 import '../screens/game_screen.dart';
-import '../screens/info_screen.dart';
 
 class CyberButton extends StatelessWidget {
   const CyberButton({Key key, this.text = 'Back'}) : super(key: key);
+
   final String text;
+
+  void _pressButton(BuildContext context) {
+    switch (text) {
+      case 'Play':
+        {
+          Navigator.push(
+              context, CupertinoPageRoute<Route>(fullscreenDialog: true, builder: (context) => const Game()));
+        }
+        break;
+      case 'Back':
+        {
+          Navigator.pop(context);
+        }
+        break;
+      default:
+        {
+          AudioPlayer.restartVoice;
+          CockpitControl.resetScore();
+          Phoenix.rebirth(context);
+          Navigator.pop(context);
+        }
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) => InkWell(
+      enableFeedback: false,
+      autofocus: true,
+      splashColor: Colors.transparent,
       child: Material(
         clipBehavior: Clip.antiAlias,
         color: Colors.black38,
@@ -23,8 +54,5 @@ class CyberButton extends StatelessWidget {
               textAlign: TextAlign.center),
         ),
       ),
-      onTap: () => Navigator.push(
-          context,
-          CupertinoPageRoute<Route>(
-              fullscreenDialog: true, builder: (context) => ((text == 'Back') ? const InfoScreen() : const Game()))));
+      onTap: () => _pressButton(context));
 }

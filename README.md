@@ -153,26 +153,24 @@ You can find binaries for Android, macOS and Web in [Releases](https://github.co
 | Language version | [2.9.0](https://github.com/dart-lang) |
 | Language channel | beta |
 | **IDE name** | [Visual Studio Code](https://code.visualstudio.com/insiders/) |
-| IDE version | [1.49.0](https://github.com/microsoft/vscode) |
+| IDE version | [1.48.0](https://github.com/microsoft/vscode) |
 | IDE channel | insider |
 | 3rd-party Dependency name | Auto Size Text|
 | 3rd-party Dependency package | [auto_size_text](https://pub.dev/packages/auto_size_text) |
 | 3rd-party Dependency version | [2.1.0](https://github.com/leisim/auto_size_text) |
-| 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | Assets Audio Player |
 | 3rd-party Dependency package | [assets_audio_player](https://pub.dev/packages/assets_audio_player) |
 | 3rd-party Dependency version | [2.0.8+2](https://github.com/florent37/Flutter-AudioPlayer) |
-| 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | [Rive](https://rive.app) (ex Flare) |
 | 3rd-party Dependency package | [flare_flutter](https://pub.dev/packages/flare_flutter) |
 | 3rd-party Dependency version | [2.0.4](https://github.com/2d-inc/Flare-Flutter) |
-| 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | URL Launcher |
 | 3rd-party Dependency package | [url_launcher](https://pub.dev/packages/url_launcher) |
 | 3rd-party Dependency version | [5.5.0](https://github.com/flutter/plugins) |
-| 3rd-party Dependency channel | stable |
 | 3rd-party Dependency name | Stateless Animation |
 | 3rd-party Dependency package | [sa_stateless_animation](https://pub.dev/packages/sa_stateless_animation) |
 | 3rd-party Dependency version | [1.0.1](https://github.com/felixblaschke/sa_stateless_animation) |
-| 3rd-party Dependency channel | stable |
+| 3rd-party Dependency name | Flutter Phoenix |
+| 3rd-party Dependency package | [flutter_phoenix](https://pub.dev/packages/flutter_phoenix) |
+| 3rd-party Dependency version | [0.1.0](https://github.com/mobiten/flutter_phoenix) |
 | Architecture | Vanilla |

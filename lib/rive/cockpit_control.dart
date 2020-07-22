@@ -10,10 +10,10 @@ import 'package:flutter/widgets.dart';
 
 import '../screens/game_screen.dart';
 import '../widgets/dialog.dart';
-import 'pseudo3D_actor.dart';
+import 'hud_control.dart';
 
-class RivePseudo3DWidget extends LeafRenderObjectWidget {
-  const RivePseudo3DWidget({
+class AnimatedHUD extends LeafRenderObjectWidget {
+  const AnimatedHUD({
     Key key,
     this.fit = BoxFit.contain,
     this.alignment = Alignment.center,
@@ -28,7 +28,7 @@ class RivePseudo3DWidget extends LeafRenderObjectWidget {
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    return RivePseudo3DRenderObject()
+    return CockpitControl()
       ..fit = fit
       ..alignment = alignment
       ..point = point
@@ -37,10 +37,10 @@ class RivePseudo3DWidget extends LeafRenderObjectWidget {
   }
 
   @override
-  void didUnmountRenderObject(covariant RivePseudo3DRenderObject _renderObject) => _renderObject.dispose();
+  void didUnmountRenderObject(covariant CockpitControl _renderObject) => _renderObject.dispose();
 
   @override
-  void updateRenderObject(BuildContext context, covariant RivePseudo3DRenderObject renderObject) {
+  void updateRenderObject(BuildContext context, covariant CockpitControl renderObject) {
     renderObject
       ..fit = fit
       ..alignment = alignment
@@ -50,20 +50,18 @@ class RivePseudo3DWidget extends LeafRenderObjectWidget {
   }
 }
 
-class RivePseudo3DRenderObject extends FlareRenderBox {
+class CockpitControl extends FlareRenderBox {
   static ActorNode ikTarget;
   static int score = 0;
+
   final BuildContext context = Game.navKey.currentState.overlay.context;
-  double _animationTime = 0, point, turn, pseudo3DDepth;
-  Pseudo3DArtboard _artboard;
+  double point, turn, pseudo3DDepth;
+
+  static double _animationTime = 0;
+  static bool _scoreShowing = false;
+
+  Pseudo3dHudArtboard _artboard;
   final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/HUD.flr');
-
-  void _scoreDialog() => showDialog<void>(
-      barrierDismissible: false,
-      useRootNavigator: false,
-      context: context,
-      builder: (_) => CyberDialog(finalScore: score));
-
   ActorAnimation _foregroundLoop, _loadUI;
 
   @override
@@ -77,7 +75,7 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
     if (_artboard == null) {
       return;
     }
-    if (_animationTime >= _loadUI.duration) {
+    if (_animationTime >= _loadUI.duration && _scoreShowing == false) {
       _scoreDialog();
     }
     _animationTime += elapsed;
@@ -92,7 +90,7 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
     super.load();
     loadFlare(_hudAnimation).then(
       (FlutterActor _actor) {
-        Pseudo3DArtboard artboard = Pseudo3DActor.instanceArtboard(_actor);
+        Pseudo3dHudArtboard artboard = Pseudo3dHudActor.instanceArtboard(_actor);
         artboard.initializeGraphics();
         _artboard = artboard;
         _foregroundLoop = _artboard.getAnimation('foreground');
@@ -106,4 +104,21 @@ class RivePseudo3DRenderObject extends FlareRenderBox {
 
   @override
   void paintFlare(Canvas canvas, Mat2D viewTransform) => _artboard.draw(canvas);
+
+  void _scoreDialog() {
+    _scoreShowing = true;
+    showDialog<void>(
+        barrierDismissible: false,
+        useRootNavigator: false,
+        context: context,
+        builder: (_) => CyberDialog(finalScore: score));
+  }
+
+  static void resetScore() {
+    _animationTime = 0;
+    score = 0;
+    _scoreShowing = false;
+  }
+
+  static void increaseScore() => score++;
 }

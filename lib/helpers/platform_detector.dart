@@ -5,8 +5,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class GameControls extends StatelessWidget {
-  final void Function(dynamic) onExit, onEnter, onHover;
-  final void Function() onTap;
   const GameControls(
       {Key key,
       @required this.onExit,
@@ -17,6 +15,11 @@ class GameControls extends StatelessWidget {
       : super(key: key);
 
   final Stack child;
+
+  final void Function(dynamic) onExit, onEnter, onHover;
+
+  final void Function() onTap;
+
   static bool get _isSmartphone {
     if (kIsWeb) {
       return false;
