@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import 'package:flutter/widgets.dart';
 
+// Here we are detecting platform and adapting game controls to it (mouse vs. touch input).
 class GameControls extends StatelessWidget {
   const GameControls(
       {Key key,
@@ -19,8 +20,8 @@ class GameControls extends StatelessWidget {
   final void Function(dynamic) onExit, onEnter, onHover;
 
   final void Function() onTap;
-
-  static bool get _isSmartphone {
+  // Detecting platform with kIsWeb, since standard check will throw an exception.
+  static bool get isSmartphone {
     if (kIsWeb) {
       return false;
     } else {
@@ -29,7 +30,7 @@ class GameControls extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => _isSmartphone
+  Widget build(BuildContext context) => isSmartphone
       ? GestureDetector(child: child, onDoubleTap: onTap, onPanEnd: onExit, onPanStart: onEnter, onPanUpdate: onHover)
       : MouseRegion(
           child: GestureDetector(child: child, onTap: onTap),

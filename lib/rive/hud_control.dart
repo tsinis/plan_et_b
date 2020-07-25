@@ -6,6 +6,9 @@ import 'package:flare_dart/actor_shape.dart';
 import 'package:flare_flutter/flare.dart';
 import 'package:flutter/widgets.dart';
 
+// This part is complex enough, but luckily the Rive Team has prepared a great tutorial+video about this 3D like depth:
+// https://medium.com/rive/flare-nyc-workshop-and-the-hamilton-design-challenge-ae8b2d1c73fc
+
 class Pseudo3dHudActor extends FlutterActor {
   Pseudo3dHudActor(FlutterActor _source) {
     copyFlutterActor(_source);

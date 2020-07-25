@@ -39,10 +39,11 @@ const List<_Attribution> attributions = [
     authorURL: 'https://soundcloud.com/21bakerstreet',
     licenseURL: 'https://creativecommons.org/licenses/by/3.0/',
     license: 'CC BY 3.0',
-    additional: 'Changes: WAV was converted to MP3 (64 kbps) and spaces in filename are replaced with undescores.',
+    additional: 'Changes: WAV was converted to MP3 (64 kbps) and spaces in filename are replaced with underscores.',
   ),
 ];
 
+// Here we will create an Attribution template class, so we easily add new attributions without creating each one manually.
 class _Attribution extends StatelessWidget {
   const _Attribution(
       {@required this.name,

@@ -6,17 +6,19 @@ import '../helpers/glitch_extension.dart';
 import 'attribution.dart';
 import 'button.dart';
 
+// Dialog will be used here two times, for About info and final Score.
 class CyberDialog extends StatelessWidget {
   const CyberDialog({Key key, this.finalScore}) : super(key: key);
 
   final int finalScore;
 
-  bool get _about => finalScore == null;
+  bool get _about => finalScore == null; // If score is not passed here -- it's About dialog.
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        scrollable: _about,
+        scrollable: _about, // If it's About dialog, then scroll it, if Score - not.
         shape: const BeveledRectangleBorder(
+            // Futuristic shape with "cut-out" corners.
             side: BorderSide(color: Colors.blueGrey),
             borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), bottomRight: Radius.circular(20.0))),
         contentTextStyle: FontEnchantments.text,
@@ -44,18 +46,20 @@ class _ScoreContent extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              text: _scoreText,
-              style: FontEnchantments.text,
-              children: [
-                TextSpan(
-                    text: _planetBText,
-                    style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
-              ],
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                text: _scoreText,
+                style: FontEnchantments.text,
+                children: [
+                  TextSpan(
+                      text: _planetBText,
+                      style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
+                ],
+              ),
             ),
           ),
           const CyberButton(text: 'Play Again')
@@ -68,8 +72,6 @@ class _AboutContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
@@ -100,7 +102,7 @@ class _AboutContent extends StatelessWidget {
             child: Text('Assets used in this project (with CC 3.0 licenses) are:',
                 maxLines: 4, style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.blueGrey[300])),
           ),
-          ...attributions,
+          ...attributions, // Show List of all attributions here.
           const Center(child: Padding(padding: EdgeInsets.all(10.0), child: CyberButton()))
         ],
       );

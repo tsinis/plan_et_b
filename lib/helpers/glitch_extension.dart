@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+// Custom Fonts for futuristic looking UI.
+
 extension FontEnchantments on Widget {
   Widget get glitchText => _Glitch(child: this);
   static const displayGlitch = TextStyle(fontFamily: 'Corruptor LDR', fontSize: 42, color: Color(0xFFffffff));
@@ -9,6 +11,7 @@ extension FontEnchantments on Widget {
   static const text = TextStyle(fontFamily: 'Polentical Neon', fontSize: 22, color: Color(0xFFc0c0c0));
 }
 
+// Extension with glitch animation (with onTap func.).
 class _Glitch extends StatefulWidget {
   const _Glitch({Key key, this.child}) : super(key: key);
 
@@ -18,6 +21,7 @@ class _Glitch extends StatefulWidget {
   _GlitchState createState() => _GlitchState();
 }
 
+// Standard tween animation will be used in loop here.
 class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
   static bool stopped = false;
 

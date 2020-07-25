@@ -4,17 +4,19 @@ import 'package:flutter/material.dart';
 
 import '../helpers/glitch_extension.dart';
 
+// Random warning is generated 1 second after the detection start.
 class DetectorInfo extends StatelessWidget {
   const DetectorInfo({Key key}) : super(key: key);
-  static final Random _random = Random();
-  int get _randomNumber => _random.nextInt(20);
+  static final Random _random = Random(); // Initialize random generator.
+  int get _randomNumber => _random.nextInt(20); // Generate random number (from 0 to 20).
   @override
   Widget build(BuildContext context) => Wrap(
+        // Wrap is adaptive to screen size/orientation, so we can place our icon on top or on the left side.
         crossAxisAlignment: WrapCrossAlignment.center,
         alignment: WrapAlignment.center,
         spacing: 10.0,
         children: [
-          const Icon(Icons.warning, color: Color(0x4d084e79), size: 40),
+          const Icon(Icons.warning, color: Color(0x6609cad9), size: 40), // Transparent cyan color.
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(

@@ -4,6 +4,7 @@ import 'package:sa_stateless_animation/sa_stateless_animation.dart';
 
 import '../helpers/audio_player.dart';
 import '../helpers/glitch_extension.dart';
+import '../helpers/platform_detector.dart';
 import '../widgets/button.dart';
 import '../widgets/dialog.dart';
 
@@ -12,7 +13,7 @@ class InfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool _isSmartPhone = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
+    bool _portraitOrientation = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: Stack(
@@ -59,7 +60,7 @@ class InfoScreen extends StatelessWidget {
                             opacity: 0.66,
                             child: AutoSizeText(
                                 "2077y ...the world is divided. Since 2020, there have been tremendous changes in social order. The countries have lost their geopolitical influence because of internal problems, so they have ceased efforts to change the climate on Earth. It's becoming impossible to live here, your mission is find a new planet (Planet B). Unfortunately, you have a limited amount of fuel.",
-                                maxLines: _isSmartPhone ? 6 : 11,
+                                maxLines: _portraitOrientation ? 6 : 11,
                                 minFontSize: 11,
                                 style: FontEnchantments.text,
                                 textAlign: TextAlign.center),
@@ -67,8 +68,10 @@ class InfoScreen extends StatelessWidget {
                           const CyberButton(text: 'Play'),
                           Flexible(
                             child: AutoSizeText(
-                                "Move aim to look around, press to determine a planet's suitability for life. There is a dozen planets to check.",
-                                maxLines: _isSmartPhone ? 2 : 4,
+                                GameControls.isSmartphone
+                                    ? "Drag to look around, double tap tap to determine a planet's suitability for life. There is a dozen planets to check"
+                                    : "Move aim to look around, press to determine a planet's suitability for life. There is a dozen planets to check.",
+                                maxLines: _portraitOrientation ? 2 : 4,
                                 minFontSize: 11,
                                 style: FontEnchantments.text,
                                 textAlign: TextAlign.center),
@@ -100,8 +103,7 @@ class InfoScreen extends StatelessWidget {
                     color: const Color(0x9909cad9),
                     tooltip: 'About this game.',
                     icon: const Icon(Icons.info_outline),
-                    onPressed: () =>
-                        showDialog<void>(context: context, builder: (BuildContext context) => const CyberDialog()),
+                    onPressed: () => showDialog<void>(context: context, builder: (_) => const CyberDialog()),
                   ),
                   IconButton(
                       iconSize: 40.0,

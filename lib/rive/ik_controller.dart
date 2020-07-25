@@ -9,6 +9,9 @@ import 'package:flare_dart/math/vec2d.dart' show Vec2D;
 
 import 'cockpit_control.dart';
 
+// Here you will need some advantage knowledge of Rive Controllers, please refer to official documentation at:
+// https://pub.dev/documentation/flare_dart/latest
+
 class IKController implements FlareController {
   bool detecting = false;
 
