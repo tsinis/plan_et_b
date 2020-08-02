@@ -8,7 +8,7 @@ import '../helpers/glitch_extension.dart';
 class DetectorInfo extends StatelessWidget {
   const DetectorInfo({Key key}) : super(key: key);
   static final Random _random = Random(); // Initialize random generator.
-  int get _randomNumber => _random.nextInt(20); // Generate random number (from 0 to 20).
+  int get _randomNumber => _random.nextInt(20); // Generate random number (from 0 to 20), for later use in reports.
   @override
   Widget build(BuildContext context) => Wrap(
         // Wrap is adaptive to screen size/orientation, so we can place our icon on top or on the left side.
@@ -16,7 +16,8 @@ class DetectorInfo extends StatelessWidget {
         alignment: WrapAlignment.center,
         spacing: 10.0,
         children: [
-          const Icon(Icons.warning, color: Color(0x6609cad9), size: 40), // Transparent cyan color.
+          const Icon(Icons.warning, color: Color(0x4D09cad9), size: 40), // Warning icon with transparent cyan color.
+          // Generating reports about life suability of planets, with random numbers.
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(

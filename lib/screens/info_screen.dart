@@ -8,11 +8,13 @@ import '../helpers/platform_detector.dart';
 import '../widgets/button.dart';
 import '../widgets/dialog.dart';
 
+// Info screen, a.k.a. Main Screen of the app.
 class InfoScreen extends StatelessWidget {
   const InfoScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Portrait orientation devices will need a little bit more lines for texts.
     bool _portraitOrientation = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
@@ -97,6 +99,7 @@ class InfoScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //About icon.
                   IconButton(
                     iconSize: 40.0,
                     padding: const EdgeInsets.all(12.0),
@@ -105,6 +108,7 @@ class InfoScreen extends StatelessWidget {
                     icon: const Icon(Icons.info_outline),
                     onPressed: () => showDialog<void>(context: context, builder: (_) => const CyberDialog()),
                   ),
+                  // Music button.
                   IconButton(
                       iconSize: 40.0,
                       padding: const EdgeInsets.all(12.0),
@@ -115,7 +119,7 @@ class InfoScreen extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

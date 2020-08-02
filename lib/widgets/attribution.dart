@@ -46,18 +46,18 @@ const List<_Attribution> attributions = [
 // Here we will create an Attribution template class, so we easily add new attributions without creating each one manually.
 class _Attribution extends StatelessWidget {
   const _Attribution(
-      {@required this.name,
-      @required this.author,
-      @required this.license,
-      @required this.nameURL,
+      {@required this.author,
       @required this.authorURL,
+      @required this.name,
+      @required this.nameURL,
+      @required this.license,
       @required this.licenseURL,
       @required this.type,
       this.additional,
       Key key})
       : super(key: key);
 
-  final String name, author, license, nameURL, authorURL, licenseURL, type, additional;
+  final String author, authorURL, name, nameURL, license, licenseURL, type, additional;
 
   @override
   Widget build(BuildContext context) => Padding(

@@ -2,12 +2,13 @@
 
 # Plan-et-а B (PWA Hra) 🚀
 
-## Obsah:
+## Obsah
+
 * [Popis](#Popis)
 * [Jak na to](#Jak-na-to)
-  * [Jak hrát online?](#Jak-hrát-online?)
-  * [Jak hrát lokálně?](#Jak-hrát-lokálně?)
-  * [Jak to sestavit?](#Jak-to-sestavit?)
+  * [Jak hrát online](#Jak-hrát-online)
+  * [Jak hrát lokálně](#Jak-hrát-lokálně)
+  * [Jak to sestavit](#Jak-to-sestavit)
 * [Úkoly](#Úkoly-do-budoucna)
 * [Licence](#Licence)
 * [Atribuce](#Atribuce)
@@ -23,7 +24,9 @@ V této větvi najdete **aktualizovanou verzi**  mého **vítězného příspěv
 
 Hackaton měl **přes 2665 účastníků, 650 týmů**, s 266 projekty. Psaní kódu se řídilo pravidly hackathonu, seznam dalších výherců a další informace o pravidlech najdete na oficiálních stránkách: [flutterhackathon.com](https://flutterhackathon.com)
 
-#### Oficiální témata Hackathonu Flutter Společenství v roce 2020:
+> **Mimochodem:** Tento projekt byl 23. července 2020 přidán do doporučeného seznamu na hlavní stránce webu [It All Widgets!](Https://itsallwidgets.com).
+
+### Oficiální témata Hackathonu Flutter Společenství v roce 2020
 
 * 🌎 **Zachraňte planetu** (Ekologie / Co jsme se naučili během pandemie)
 
@@ -49,12 +52,11 @@ Tady neexistuje žádná planeta B (vhodná pro život). A je to hlavní bod té
 
 ## Jak na to
 
-### Jak hrát online?
+### Jak hrát online
 
 ---
 
 :warning: **Důležité! Dříve než začnete!**
-
 
 Tento projekt v podobě progresivní webové aplikace (PWA) **lze spustit pouze v novějších Chromium prohlížečích (Chrome, Edge, atd) verze 83 nebo novější. Také jsem to testoval na Firefox v77+**, takže to může být také v pořádku. Nesnažte se jej spustit na Safari, Internet Exploreru atd. - nemohou to zvládnout!
 
@@ -65,12 +67,14 @@ Díky [Codemagic](https://codemagic.io), stačí kliknout na tento odkaz a spust
 
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
-### Jak hrát lokálně?
+### Jak hrát lokálně
+
 Předpokládá se, že již máte nainstalovaný Flutter a prohlížeč Chrome/Chromium. Postupujte prosím podle následujících pokynů ve svém terminálu:
+
 ````markdown
 flutter channel master
 flutter upgrade
-flutter config --enable-macos-desktop
+flutter config --enable-web
 git clone https://github.com/tsinis/plan_et_b.git
 cd plan_et_b
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
@@ -78,28 +82,33 @@ flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-d
 
 :exclamation: Poslední řádek je nejdůležitější! **Použijte prosím tyto příznaky**, jinak se animace Rive nebudou zobrazovat správně.
 
-### Jak to sestavit?
+### Jak to sestavit
 
 Předpokládá se, že již máte nainstalovaný Flutter verze 1.19 nebo vyšší. Spusťte tyto příkazy ze složky projektu ve vašem terminálu:
 
 * Pro web:
-```
+
+```bash
 flutter config --enable-web
 flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
 ```
 
 * Pro macOS:
-```
+
+```bash
 flutter config --enable-macos-desktop
 flutter build macos --release
 ```
 
 * Pro Android:
-```
+
+```bash
 flutter build apk --split-per-abi
 ```
+
 * Pro iOS:
-```
+
+```bash
 flutter build ios --release --no-codesign
 ```
 
@@ -109,14 +118,15 @@ Každopádně, tato hra byla vytvořena jako progresivní webové aplikace (PWA)
 
 ## Úkoly do budoucna
 
-- [x] Vytvořit jádro hry.
-- [x] Vytvořit pseudo-3D rozhraní.
-- [x] Přidat zvuky a hudbu.
-- [x] Opravit zvuk na platformách jiných než Web a Android.
-- [x] Přidat Příběh a stylizovat nabídky do stylu kyberpunk.
-- [x] Přidat úvodní obrazovku a ikonky.
+* [x] Vytvořit jádro hry.
+* [x] Vytvořit pseudo-3D rozhraní.
+* [x] Přidat zvuky a hudbu.
+* [x] Opravit zvuk na platformách jiných než Web a Android.
+* [x] Přidat Příběh a stylizovat nabídky do stylu kyberpunk.
+* [x] Přidat ikonky.
 
 ## Licence
+
 Kód je licencován na základě [MIT licence](./LICENSE), podklady (jako zvuky, animace a písma) jsou licencovány s CC licenci. Soubor s názvem **LICENSE** najdete uvnitř adresářů, který obsahuje kopii licence, s plným textem této licence, v anglickém jazyce.
 
 ## Atribuce
@@ -137,6 +147,7 @@ je licencován na základě licence [CC BY-SA 3.0](https://creativecommons.org/l
 [“SCI FI HORROR OPENING MASTERED”](https://soundcloud.com/21bakerstreet/sci-fi-horror-opening-mastered)
 od [Michael Dunn “21bakerstreet”](https://soundcloud.com/21bakerstreet)
 je licencován na základě licence [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
 >**Změny v hudebním assetu:** WAV byl převeden na MP3 (64 kbps) a mezery v názvu souboru jsou nahrazeny podtržítky.
 
 ## Vydání
@@ -144,6 +155,8 @@ je licencován na základě licence [CC BY 3.0](https://creativecommons.org/lice
 Binární spouštěcí soubory pro Android, macOS a Web najdete v části [Releases](https://github.com/tsinis/plan_et_b/releases) tohoto repozitáře GitHub.
 
 ## Technická data
+
+Většina kódu je pokryta komentáři.
 
 | Název | Popis |
 | ---- | ----------- |
@@ -174,4 +187,4 @@ Binární spouštěcí soubory pro Android, macOS a Web najdete v části [Relea
 | Název závislosti třetí strany | Flutter Phoenix |
 | Balíček závislosti třetí strany | [flutter_phoenix](https://pub.dev/packages/flutter_phoenix) |
 | Verze závislosti třetí strany | [0.1.0](https://github.com/mobiten/flutter_phoenix) |
-| Architektura | Vanilla |
+| Architektura | Posluchač (bez globálních stavů) |

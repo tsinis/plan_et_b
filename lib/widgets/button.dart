@@ -7,11 +7,14 @@ import '../helpers/glitch_extension.dart';
 import '../rive/cockpit_control.dart';
 import '../screens/game_screen.dart';
 
+// This futuristic looking button will be used in game few times, so according to
+// DRY principle it will be written just once and used on every screen (as a Cyber Dialog).
 class CyberButton extends StatelessWidget {
   const CyberButton({Key key, this.text = 'Back'}) : super(key: key);
 
   final String text; // The text that will be shown on button.
 
+  // What will happen when user is pressing on that button.
   void _pressButton(BuildContext context) {
     switch (text) {
       case 'Play': // If we are at the main menu, then start the game.
@@ -27,9 +30,9 @@ class CyberButton extends StatelessWidget {
       default: // If it's a Score dialog, then just start game again.
         {
           AudioPlayer.restartVoice;
-          CockpitControl.resetScore();
-          Phoenix.rebirth(context); // Resetting animations state, so it will start over again.
-          Navigator.pop(context);
+          CockpitControl.resetScore(); // Reset score, then
+          Phoenix.rebirth(context); // reset animations state, so it will start over again and,
+          Navigator.pop(context); // finally hide Score Dialog.
         }
         break;
     }

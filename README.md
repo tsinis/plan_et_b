@@ -1,13 +1,14 @@
-﻿﻿:globe_with_meridians:  **<u>english</u>**  |   [český](README.cz.md)	|   [русский](README.ru.md)
+﻿﻿:globe_with_meridians:  **<u>english</u>**  |   [český](README.cz.md) |   [русский](README.ru.md)
 
 # Plan-et-B (PWA Game) 🚀
 
-## Table of content:
+## Table of content
+
 * [Description](#Description)
 * [How To Section](#How-to-Section)
-  * [How to play it online?](#How-to-play-it-online?)
-  * [How to play it locally?](#How-to-play-it-locally?)
-  * [How to build it?](#How-to-build-it?)
+  * [How to play it online](#How-to-play-it-online)
+  * [How to play it locally](#How-to-play-it-locally)
+  * [How to build it](#How-to-build-it)
 * [To-Do Section](#To-Do-Section)
 * [Licenses](#Licenses)
 * [Attributions](#Attributions)
@@ -23,7 +24,9 @@ In this branch you will find the **updated** version of my **award-winning submi
 
 The hackaton had over **2665 attendees, 650 teams**, with 266 projects. Writing the code was guided by the hackathon rules, the list of other winners, as well as more info about the rules, can be found on the official website: [flutterhackathon.com](https://flutterhackathon.com)
 
-#### Official Flutter Community Hackathon 2020 Themes:
+> **Also:**  This project was featured at main-page of [It's All Widgets!](https://itsallwidgets.com) web-site on July 23, 2020.
+
+### Official Flutter Community Hackathon 2020 Themes
 
 * 🌎 **Saving the Planet** (Eco / What we’ve learned during the pandemic)
 
@@ -49,12 +52,11 @@ There is no planet B (suitable for life). And it's the main point of this game a
 
 ## How To Section
 
-### How to play it online?
+### How to play it online
 
 ---
 
 :warning: **Important! BEFORE YOU START!**
-
 
 This project in form of PWA **will only run on most recent browsers, with Chromium (Chrome, Edge, etc.) engine v83 or newer. Also, I've tested it on Firefox v77+**, so it might be OK too. Don't even try to run it on Safari, Internet Explorer and so on — they can't handle it!
 
@@ -65,12 +67,14 @@ Thanks to [Codemagic](https://codemagic.io), you can just follow this link and r
 
 [https://hack20.codemagic.app](https://hack20.codemagic.app)
 
-### How to play it locally?
+### How to play it locally
+
 The Flutter and Chrome/Chromium Browser is expected to be installed. Please follow this commands in your terminal:
-````markdown
+
+````bash
 flutter channel master
 flutter upgrade
-flutter config --enable-macos-desktop
+flutter config --enable-web
 git clone https://github.com/tsinis/plan_et_b.git
 cd plan_et_b
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
@@ -78,27 +82,33 @@ flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-d
 
 :exclamation: The last line is most important! **Please DO use this flags**, otherwise, Rive animations will not be displayed correctly.
 
-### How to build it?
+### How to build it
 
 Flutter version 1.19 or higher is assumed to be installed. Please run this command from the project's folder, in your terminal:
 
 * For Web:
-```
+
+```bash
 flutter config --enable-web
 flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
 ```
+
 * For macOS:
-```
+
+```bash
 flutter config --enable-macos-desktop
 flutter build macos --release
 ```
 
 * For Android:
-```
+
+```bash
 flutter build apk --split-per-abi
 ```
+
 * For iOS:
-```
+
+```bash
 flutter build ios --release --no-codesign
 ```
 
@@ -108,14 +118,15 @@ flutter build ios --release --no-codesign
 
 ## To-Do Section
 
-- [x] Create Game Core.
-- [x] Create Pseudo-3D HUD.
-- [x] Add Sounds and Music.
-- [x] Fix Audio on platforms other than Web and Android.
-- [x] Add a Story and stylize the menus to Cyberpunk style.
-- [x] Add Splash Screen and Icons.
+* [x] Create Game Core.
+* [x] Create Pseudo-3D HUD.
+* [x] Add Sounds and Music.
+* [x] Fix Audio on platforms other than Web and Android.
+* [x] Add a Story and stylize the menus to Cyberpunk style.
+* [x] Add Launcher Icons.
 
 ## Licenses
+
 This project is released under the terms of the [MIT license](./LICENSE). All assets (as sounds, animations, and fonts) are CC licensed and are free for personal use. You can find **LICENSE** files in their folders.
 
 ## Attributions
@@ -136,6 +147,7 @@ is licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/
 [“SCI FI HORROR OPENING MASTERED”](https://soundcloud.com/21bakerstreet/sci-fi-horror-opening-mastered)
 by [Michael Dunn “21bakerstreet”](https://soundcloud.com/21bakerstreet)
 is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
 > **Changes in Music Asset:** WAV was converted to MP3 (64 kbps) and spaces in filename are replaced with underscores.
 
 ## Releases
@@ -143,6 +155,8 @@ is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 You can find binaries for Android, macOS and Web in [Releases](https://github.com/tsinis/plan_et_b/releases) section of this GitHub repository.
 
 ## Technical Data
+
+Most of the code is covered with comments.
 
 | Name | Description |
 | ---- | ----------- |
@@ -173,4 +187,4 @@ You can find binaries for Android, macOS and Web in [Releases](https://github.co
 | 3rd-party Dependency name | Flutter Phoenix |
 | 3rd-party Dependency package | [flutter_phoenix](https://pub.dev/packages/flutter_phoenix) |
 | 3rd-party Dependency version | [0.1.0](https://github.com/mobiten/flutter_phoenix) |
-| Architecture | Vanilla |
+| Architecture | Listener (without Global States) |

@@ -12,7 +12,7 @@ import '../screens/game_screen.dart';
 import '../widgets/dialog.dart';
 import 'hud_control.dart';
 
-// Reference for 3d like HUD.
+// special class ref. for 3D like HUD.
 class AnimatedHUD extends LeafRenderObjectWidget {
   const AnimatedHUD({
     Key key,
@@ -51,9 +51,10 @@ class AnimatedHUD extends LeafRenderObjectWidget {
 
 class CockpitControl extends FlareRenderBox {
   static ActorNode ikTarget; // Ref. for target (it will follow mouse or finger).
-  static int score = 0; // Game score for later increase.
+  static int _score = 0; // Game _score for later increase.
+
   // Score dialog can't be showed without context, and Render Box doesn't offer one.
-  final BuildContext context = Game.navKey.currentState.overlay.context;
+  final BuildContext _mainScreenContext = Game.navKey.currentState.overlay.context;
   double point, turn, pseudo3DDepth; // For animations moving, depth resetting etc.
 
   static double _animationTime = 0; // So we can show Score dialog at the end of game animation.
@@ -63,6 +64,7 @@ class CockpitControl extends FlareRenderBox {
   Pseudo3dHudArtboard _artboard;
   final AssetProvider _hudAnimation = AssetFlare(bundle: rootBundle, name: 'assets/animations/HUD.flr');
   ActorAnimation _foregroundLoop, _loadUI;
+
   // Necessary overrides:
   @override
   bool get isPlaying => true;
@@ -77,21 +79,26 @@ class CockpitControl extends FlareRenderBox {
   @override
   void advance(double elapsed) {
     if (_artboard == null) {
+      // No artboard -- no animations.
       return;
     }
     // Animation time is at the end -- show Score.
     if (_animationTime >= _loadUI.duration && _scoreShowing == false) {
       _scoreDialog();
     } else {
+      // Otherwise track animation time,
       _animationTime += elapsed;
+      // loop HUD animation,
       _foregroundLoop?.apply(_animationTime % _foregroundLoop.duration, _artboard, 1.0);
       _loadUI?.apply(_animationTime, _artboard, 1.0);
+      // and add 3D effect on HUD,
       _artboard.setPseudo3D(point, turn, pseudo3DDepth);
+      // in current frame.
       _artboard.advance(elapsed);
     }
   }
 
-  // Reference for HUD loading and moving.
+  // References for HUD loading and moving.
   @override
   void load() {
     super.load();
@@ -100,29 +107,33 @@ class CockpitControl extends FlareRenderBox {
         Pseudo3dHudArtboard artboard = Pseudo3dHudActor.instanceArtboard(_actor);
         artboard.initializeGraphics();
         _artboard = artboard;
-        _foregroundLoop = _artboard.getAnimation('foreground');
-        _loadUI = _artboard.getAnimation('load_ui');
-        ikTarget = _artboard.getNode('view_control');
+        _foregroundLoop = _artboard.getAnimation('foreground'); // Main HUD animation to loop.
+        _loadUI = _artboard.getAnimation('load_ui'); // Initial load animation reference.
+        ikTarget = _artboard.getNode('view_control'); // Same as Cockpit's one.
         _artboard.advance(0.0);
         markNeedsPaint();
       },
     );
   }
 
+  // Show _score at the game end and don't overlap it (since animation is still running in background after game over).
   void _scoreDialog() {
-    _scoreShowing = true;
+    _scoreShowing = true; // This will only allow to show Score dialog only once.
     showDialog<void>(
-        barrierDismissible: false,
+        barrierDismissible: false, // So users cannot accidentally close dialog.
         useRootNavigator: false,
-        context: context,
-        builder: (_) => CyberDialog(finalScore: score));
+        context: _mainScreenContext,
+        builder: (_) => CyberDialog(finalScore: _score));
   }
 
+  //This function (together with Phoenix) will reset _score and animation time if user will decide to run the game again
   static void resetScore() {
     _animationTime = 0;
-    score = 0;
+    _score = 0;
     _scoreShowing = false;
   }
 
-  static void increaseScore() => score++;
+  // Setters for _score -- better than accessing it directly.
+  static void increaseScore() => _score++;
+  static void initialScore() => _score = 0;
 }

@@ -16,9 +16,10 @@ import '../widgets/info_bar.dart';
 class Game extends StatefulWidget {
   const Game({Key navKey}) : super(key: navKey);
 
+// NavKey will be later used for access to main screen context (showing dialog), since Rive is managing state in this app.
   static final navKey = GlobalKey<NavigatorState>();
 
-// Define path to asset to cache.
+// Define path to Rive asset to cache.
   static final AssetProvider _riveAsset = AssetFlare(bundle: rootBundle, name: 'assets/animations/Cockpit.flr');
 
   @override
@@ -40,10 +41,10 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    CockpitControl.score = 0; // Set score to zero.
-    AudioPlayer.playVoice; // Play background voice sound.
+    CockpitControl.initialScore(); // Set score to zero when first game is started.
+    AudioPlayer.playVoice; // Play background voice sound when first game is started.
     super.initState();
-    // Adding listener for pseudo 3D HUD.
+    // Adding listener for pseudo 3D HUD, so we can track changes and updated the state of game.
     _hudController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this)
       ..addListener(
         () => setState(
@@ -64,7 +65,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   Size get _screenSize => MediaQuery.of(context).size;
 
   void get _detect {
-    // If player double tap or clicking then:
+    // If player double tap / clicking then:
     AudioPlayer.playSound; // Play scan sound.
     // ! Letting animation controller know that he will need to change opacity of Planet's B outline and fill to 100%.
     _ikController.detecting = true;
@@ -94,7 +95,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        key: _scaffoldKey,
+        key: _scaffoldKey, // We will need this one for a Snack Bar.
         backgroundColor: Colors.black,
         body: GameControls(
           // Detect if user using mouse or hand-gestures, so we can change behavior of game control (double tap vs click).
@@ -129,7 +130,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
           },
           child: Stack(
             children: [
-              // Main game animation.
+              // Main game "fly" animation.
               Positioned.fill(child: FlareActor.asset(widget.cache, animation: 'game', controller: _ikController)),
               // And decorative HUD animation.
               Positioned.fill(child: AnimatedHUD(point: _point, turn: _turn, depth: _depth?.value ?? 0.0))

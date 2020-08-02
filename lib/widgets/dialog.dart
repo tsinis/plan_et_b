@@ -16,7 +16,7 @@ class CyberDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        scrollable: _about, // If it's About dialog, then scroll it, if Score - not.
+        scrollable: _about, // If it's About dialog, then scroll it (there is a lot of info), if Score - don't scroll.
         shape: const BeveledRectangleBorder(
             // Futuristic shape with "cut-out" corners.
             side: BorderSide(color: Colors.blueGrey),
@@ -29,9 +29,11 @@ class CyberDialog extends StatelessWidget {
       );
 }
 
+// Score Dialog content.
 class _ScoreContent extends StatelessWidget {
   const _ScoreContent(this._finalScore, {Key key}) : super(key: key);
 
+  @required
   final int _finalScore;
 
   String get _scoreText => (_finalScore > 11)
@@ -67,6 +69,7 @@ class _ScoreContent extends StatelessWidget {
       );
 }
 
+// About Dialog content.
 class _AboutContent extends StatelessWidget {
   const _AboutContent({Key key}) : super(key: key);
 
