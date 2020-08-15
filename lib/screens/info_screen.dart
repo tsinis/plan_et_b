@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sa_stateless_animation/sa_stateless_animation.dart';
 
 import '../helpers/audio_player.dart';
@@ -14,6 +15,7 @@ class InfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     // Portrait orientation devices will need a little bit more lines for texts.
     bool _portraitOrientation = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
     return Scaffold(

@@ -45,28 +45,30 @@ class _ScoreContent extends StatelessWidget {
       : "didn't find a Planet B suitable for life.\nTry once more.\n\n";
 
   @override
-  Widget build(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                text: _scoreText,
-                style: FontEnchantments.text,
-                children: [
-                  TextSpan(
-                      text: _planetBText,
-                      style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
-                ],
+  Widget build(BuildContext context) => SingleChildScrollView(
+    child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: _scoreText,
+                  style: FontEnchantments.text,
+                  children: [
+                    TextSpan(
+                        text: _planetBText,
+                        style: FontEnchantments.text.copyWith(color: const Color(0xFFffdd00), fontSize: 24.0))
+                  ],
+                ),
               ),
             ),
-          ),
-          const CyberButton(text: 'Play Again')
-        ],
-      );
+            const CyberButton(text: 'Play Again')
+          ],
+        ),
+  );
 }
 
 // About Dialog content.
