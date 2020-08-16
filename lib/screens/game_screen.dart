@@ -37,7 +37,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
   Animation<double> _pseudo3D, _depth;
   AnimationController _hudController;
   final IKController _ikController = IKController();
-  double _point = 0.0, _turn = 0.0;
+  double _point = 0, _turn = 0;
 
   @override
   void initState() {
@@ -46,21 +46,17 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
     super.initState();
     // Adding listener for pseudo 3D HUD, so we can track changes and updated the state of game.
     _hudController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this)
-      ..addListener(
-        () => setState(
-          () {
+      ..addListener(() => setState(() {
             if (_pseudo3D != null) {
               _point *= _pseudo3D.value;
               _turn *= _pseudo3D.value;
             }
-          },
-        ),
-      );
-    _hudController.forward(from: 1.0);
+          }))
+      ..forward(from: 1);
   }
 
   // Reducing size of Snack Bar, so it won't be too big on wide screens.
-  double get _infoBarWidth => (_screenSize.width > 800) ? _screenSize.width / 3 : max(_screenSize.width / 1.5, 300.0);
+  double get _infoBarWidth => (_screenSize.width > 800) ? _screenSize.width / 3 : max(_screenSize.width / 1.5, 300);
 
   Size get _screenSize => MediaQuery.of(context).size;
 
@@ -80,9 +76,7 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
                   // Futuristic look.
                   side: BorderSide(color: Colors.blueGrey),
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25.0),
-                      topRight: Radius.circular(5.0),
-                      bottomRight: Radius.circular(10.0))),
+                      topLeft: Radius.circular(25), topRight: Radius.circular(5), bottomRight: Radius.circular(10))),
               backgroundColor: const Color(0x4d084e79),
               content: const DetectorInfo(),
               width: _infoBarWidth,
@@ -100,32 +94,25 @@ class _GameState extends State<Game> with SingleTickerProviderStateMixin {
         body: GameControls(
           // Detect if user using mouse or hand-gestures, so we can change behavior of game control (double tap vs click).
           onTap: () => _detect,
+          // ignore: avoid_annotating_with_dynamic
           onHover: (dynamic _moveOver) {
             _point += _moveOver.delta.dy * (0.1 / _screenSize.height) as num;
             _turn -= _moveOver.delta.dx * (0.1 / _screenSize.width) as num;
-            _ikController
-                .moveAim(Offset((_moveOver.localPosition.dx) as double, (_moveOver.localPosition.dy) as double));
+            _ikController.moveAim(Offset(_moveOver.localPosition.dx as double, _moveOver.localPosition.dy as double));
           },
+          // ignore: avoid_annotating_with_dynamic
           onExit: (dynamic _details) {
-            _pseudo3D = Tween<double>(
-              begin: 1.0,
-              end: 0.0,
-            ).animate(_hudController);
-            _depth = Tween<double>(
-              begin: 1.0,
-              end: 0.0,
-            ).animate(
-              CurvedAnimation(parent: _hudController, curve: const Cubic(0.5, 0, 0.25, 1.0)),
-            );
+            _pseudo3D = Tween<double>(begin: 1, end: 0).animate(_hudController);
+            _depth = Tween<double>(begin: 1, end: 0)
+                .animate(CurvedAnimation(parent: _hudController, curve: const Cubic(0.5, 0, 0.25, 1)));
             _hudController.forward();
             _ikController.moveAim(Offset(_screenSize.width / 2, _screenSize.height / 2));
           },
+          // ignore: avoid_annotating_with_dynamic
           onEnter: (dynamic _details) {
             _pseudo3D = null;
-            _depth = Tween<double>(
-              begin: 1.0,
-              end: 0.0,
-            ).animate(CurvedAnimation(parent: _hudController, curve: const Cubic(1.0, 0.0, 1.0, 1.0)));
+            _depth = Tween<double>(begin: 1, end: 0)
+                .animate(CurvedAnimation(parent: _hudController, curve: const Cubic(1, 0, 1, 1)));
             _hudController.reverse();
           },
           child: Stack(

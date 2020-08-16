@@ -1,5 +1,5 @@
 import 'package:flare_flutter/flare_cache.dart' show FlareCache;
-import 'package:flutter/material.dart' show MaterialApp;
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -23,5 +23,19 @@ class MyApp extends StatelessWidget {
 
   @override
   // NavKey will be later used for access to main screen context (showing dialog), since Rive is managing state in this app.
-  Widget build(BuildContext context) => MaterialApp(navigatorKey: Game.navKey, home: const InfoScreen());
+  Widget build(BuildContext context) => MaterialApp(
+      theme: ThemeData(
+        tooltipTheme: const TooltipThemeData(
+            padding: EdgeInsets.all(10),
+            textStyle: TextStyle(fontFamily: 'Polentical Neon', fontSize: 16, color: Colors.white)),
+      ),
+      navigatorKey: Game.navKey,
+      home: const AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+              // Transparent status and nav bar with light icons.
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.light,
+              systemNavigationBarColor: Colors.black,
+              systemNavigationBarIconBrightness: Brightness.light),
+          child: InfoScreen()));
 }

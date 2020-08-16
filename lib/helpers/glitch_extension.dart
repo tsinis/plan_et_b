@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 extension FontEnchantments on Widget {
   Widget get glitchText => _Glitch(child: this);
   // Glitchy Display font for headlines.
-  static const displayGlitch = TextStyle(fontFamily: 'Corruptor LDR', fontSize: 42, color: Color(0xFFffffff));
+  static const displayGlitch = TextStyle(fontFamily: 'Corruptor LDR', fontSize: 42, color: Colors.white);
   // Clean version of that same Display font, so we can switch between them on tap.
-  static const displayClean = TextStyle(fontFamily: 'Corruptor Clean LDR', fontSize: 42, color: Color(0xFFffffff));
+  static const displayClean = TextStyle(fontFamily: 'Corruptor Clean LDR', fontSize: 42, color: Colors.white);
   // Sci-fi text font, more readable then Display one, used in long texts.
   static const text = TextStyle(fontFamily: 'Polentical Neon', fontSize: 22, color: Color(0xFFc0c0c0));
 }
@@ -35,8 +35,8 @@ class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
   // Don't store animation controller if there are not widgets to animate.
   @override
   void dispose() {
-    super.dispose();
     _animationController?.dispose();
+    super.dispose();
   }
 
   // Describe animation:
@@ -46,20 +46,22 @@ class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
     // time,
     _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200));
     // and behavior (reverse animation will be smoother).
+    // ignore: prefer_int_literals
     _glitchAnimation = Tween(begin: 1.0, end: 3.0).animate(
         CurvedAnimation(curve: Curves.bounceInOut, reverseCurve: Curves.slowMiddle, parent: _animationController));
 
     // Listen and loop animation it with different curves on forward/reverse, stop animation on user's tap/click.
-    _animationController.addStatusListener(
-      (AnimationStatus _status) {
-        if (_status == AnimationStatus.completed && stopped == false) {
-          _animationController.reverse();
-        } else if (_status == AnimationStatus.dismissed && stopped == false) {
-          _animationController.forward();
-        }
-      },
-    );
-    _animationController.forward(); // Run glitch effect animation.
+    _animationController
+      ..addStatusListener(
+        (_status) {
+          if (_status == AnimationStatus.completed && stopped == false) {
+            _animationController.reverse();
+          } else if (_status == AnimationStatus.dismissed && stopped == false) {
+            _animationController.forward();
+          }
+        },
+      )
+      ..forward(); // Run glitch effect animation.
   }
 
   // Function to stop/run glitch effect.
@@ -111,15 +113,15 @@ class _GlitchState extends State<_Glitch> with SingleTickerProviderStateMixin {
 
 // Helper class, so as not to write the same code several times.
 class _GlitchText extends StatelessWidget {
-  const _GlitchText({Key key, @required this.text, this.color}) : super(key: key);
+  const _GlitchText({@required this.text, this.color, Key key}) : super(key: key);
 
   final Color color;
   final _Glitch text;
 
   @override
   Widget build(BuildContext context) => DefaultTextStyle(
-      child: text.child,
       style: _GlitchState.stopped
           ? FontEnchantments.displayClean.copyWith(color: color)
-          : FontEnchantments.displayGlitch.copyWith(color: color));
+          : FontEnchantments.displayGlitch.copyWith(color: color),
+      child: text.child);
 }

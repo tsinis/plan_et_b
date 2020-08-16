@@ -1,7 +1,7 @@
 import 'package:flare_dart/math/aabb.dart' show AABB;
 import 'package:flare_dart/math/mat2d.dart' show Mat2D;
 import 'package:flare_flutter/asset_provider.dart' show AssetProvider;
-import 'package:flare_flutter/flare.dart' show ActorAnimation, ActorNode, FlutterActor;
+import 'package:flare_flutter/flare.dart' show ActorAnimation, ActorNode;
 import 'package:flare_flutter/flare_render_box.dart' show FlareRenderBox;
 import 'package:flare_flutter/provider/asset_flare.dart' show AssetFlare;
 import 'package:flutter/material.dart' show showDialog;
@@ -36,7 +36,7 @@ class AnimatedHUD extends LeafRenderObjectWidget {
     ..pseudo3DDepth = depth;
 
   @override
-  void didUnmountRenderObject(covariant CockpitControl _renderObject) => _renderObject.dispose();
+  void didUnmountRenderObject(covariant CockpitControl renderObject) => renderObject.dispose();
 
   @override
   void updateRenderObject(BuildContext context, covariant CockpitControl renderObject) => renderObject
@@ -77,7 +77,7 @@ class CockpitControl extends FlareRenderBox {
 
   // Handling every frame of animation here:
   @override
-  void advance(double elapsed) {
+  void advance(double elapsedSeconds) {
     if (_artboard == null) {
       // No artboard -- no animations.
       return;
@@ -87,14 +87,15 @@ class CockpitControl extends FlareRenderBox {
       _scoreDialog();
     } else {
       // Otherwise track animation time,
-      _animationTime += elapsed;
+      _animationTime += elapsedSeconds;
       // loop HUD animation,
-      _foregroundLoop?.apply(_animationTime % _foregroundLoop.duration, _artboard, 1.0);
-      _loadUI?.apply(_animationTime, _artboard, 1.0);
+      _foregroundLoop?.apply(_animationTime % _foregroundLoop.duration, _artboard, 1);
+      _loadUI?.apply(_animationTime, _artboard, 1);
       // and add 3D effect on HUD,
-      _artboard.setPseudo3D(point, turn, pseudo3DDepth);
-      // in current frame.
-      _artboard.advance(elapsed);
+      _artboard
+        ..setPseudo3D(point, turn, pseudo3DDepth)
+        // in current frame.
+        ..advance(elapsedSeconds);
     }
   }
 
@@ -103,14 +104,13 @@ class CockpitControl extends FlareRenderBox {
   void load() {
     super.load();
     loadFlare(_hudAnimation).then(
-      (FlutterActor _actor) {
-        Pseudo3dHudArtboard artboard = Pseudo3dHudActor.instanceArtboard(_actor);
-        artboard.initializeGraphics();
+      (_actor) {
+        final Pseudo3dHudArtboard artboard = Pseudo3dHudActor.instanceArtboard(_actor)..initializeGraphics();
         _artboard = artboard;
         _foregroundLoop = _artboard.getAnimation('foreground'); // Main HUD animation to loop.
         _loadUI = _artboard.getAnimation('load_ui'); // Initial load animation reference.
         ikTarget = _artboard.getNode('view_control'); // Same as Cockpit's one.
-        _artboard.advance(0.0);
+        _artboard.advance(0);
         markNeedsPaint();
       },
     );
