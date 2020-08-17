@@ -17,7 +17,7 @@ class InfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     // Portrait orientation devices will need a little bit more lines for texts.
-    bool _portraitOrientation = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
+    final bool _portraitOrientation = MediaQuery.of(context).size.width > MediaQuery.of(context).size.height * 1.25;
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: Stack(
@@ -30,15 +30,15 @@ class InfoScreen extends StatelessWidget {
                 fit: BoxFit.fill, filterQuality: FilterQuality.high),
           ),
           PlayAnimation<double>(
-            tween: Tween<double>(begin: 0.1, end: 1.0),
+            tween: Tween<double>(begin: 0.1, end: 1),
             duration: const Duration(seconds: 1),
             builder: (context, child, value) => Transform.scale(scale: value, child: child),
             child: Opacity(
               opacity: 0.9,
               child: Center(
                 child: FractionallySizedBox(
-                  widthFactor: 0.85,
-                  heightFactor: 0.8,
+                  widthFactor: 0.9,
+                  heightFactor: 0.85,
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
                       border: Border(
@@ -48,7 +48,7 @@ class InfoScreen extends StatelessWidget {
                           center: Alignment(-0.6, -0.5),
                           radius: 0.1,
                           colors: <Color>[Color(0x4d084e79), Color(0x40032331)],
-                          stops: <double>[0.9, 1.0]),
+                          stops: <double>[0.9, 1]),
                     ),
                     child: FractionallySizedBox(
                       widthFactor: 0.9,
@@ -64,7 +64,7 @@ class InfoScreen extends StatelessWidget {
                             opacity: 0.66,
                             child: AutoSizeText(
                                 "2077y ...the world is divided. Since 2020, there have been tremendous changes in social order. The countries have lost their geopolitical influence because of internal problems, so they have ceased efforts to change the climate on Earth. It's becoming impossible to live here, your mission is find a new planet (Planet B). Unfortunately, you have a limited amount of fuel.",
-                                maxLines: _portraitOrientation ? 6 : 11,
+                                maxLines: _portraitOrientation ? 5 : 11,
                                 minFontSize: 11,
                                 style: FontEnchantments.text,
                                 textAlign: TextAlign.center),
@@ -103,19 +103,19 @@ class InfoScreen extends StatelessWidget {
                 children: [
                   //About icon.
                   IconButton(
-                    iconSize: 40.0,
-                    padding: const EdgeInsets.all(12.0),
-                    color: const Color(0x9909cad9),
-                    tooltip: 'About this game.',
-                    icon: const Icon(Icons.info_outline),
-                    onPressed: () => showDialog<void>(context: context, builder: (_) => const CyberDialog()),
-                  ),
+                      iconSize: 40,
+                      padding: const EdgeInsets.all(12),
+                      color: const Color(0x9909cad9),
+                      tooltip: 'About this game.',
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () => showDialog<void>(context: context, builder: (_) => const CyberDialog())),
                   // Music button.
                   IconButton(
-                      iconSize: 40.0,
-                      padding: const EdgeInsets.all(12.0),
+                      iconSize: 40,
+                      padding: const EdgeInsets.all(12),
                       color: const Color(0xFF09cad9),
-                      tooltip: 'Play/Pause Music. There is short delay, please wait for it.',
+                      tooltip:
+                          'Play/Pause Music. There is short delay, please wait for it.\nYou will not hear any sounds if DND or silence mode is enabled.',
                       icon: const Icon(Icons.music_note),
                       onPressed: () => AudioPlayer.playOrPauseMusic)
                 ],

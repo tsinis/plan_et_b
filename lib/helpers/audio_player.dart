@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 
 // self-explanatory part of audio player. Doesn't need to be in class, since it's all statics.
+// ignore: avoid_classes_with_only_static_members
 class AudioPlayer {
   static final AssetsAudioPlayer _musicPlayer = AssetsAudioPlayer.withId('music_player');
   static final AssetsAudioPlayer _sfxPlayer = AssetsAudioPlayer.withId('sfx_player');

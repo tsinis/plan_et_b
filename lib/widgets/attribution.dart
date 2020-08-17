@@ -39,7 +39,7 @@ const List<_Attribution> attributions = [
     authorURL: 'https://soundcloud.com/21bakerstreet',
     licenseURL: 'https://creativecommons.org/licenses/by/3.0/',
     license: 'CC BY 3.0',
-    additional: 'Changes: WAV was converted to MP3 (64 kbps) and spaces in filename are replaced with underscores.',
+    additionalInfo: 'Changes: WAV was converted to MP3 (64 kbps) and spaces in filename are replaced with underscores.',
   ),
 ];
 
@@ -53,15 +53,15 @@ class _Attribution extends StatelessWidget {
       @required this.license,
       @required this.licenseURL,
       @required this.type,
-      this.additional,
+      this.additionalInfo,
       Key key})
       : super(key: key);
 
-  final String author, authorURL, name, nameURL, license, licenseURL, type, additional;
+  final String author, authorURL, name, nameURL, license, licenseURL, type, additionalInfo;
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Wrap(
           crossAxisAlignment: WrapCrossAlignment.start,
           children: [
@@ -69,7 +69,7 @@ class _Attribution extends StatelessWidget {
               '• Asset type: $type.  \n',
               maxLines: 2,
               textAlign: TextAlign.start,
-              style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.blueGrey[300]),
+              style: FontEnchantments.text.copyWith(fontSize: 16, color: Colors.blueGrey[300]),
             ),
             InkWell(
               mouseCursor: MaterialStateMouseCursor.clickable,
@@ -77,13 +77,13 @@ class _Attribution extends StatelessWidget {
               child: RichText(
                 maxLines: 1,
                 text: TextSpan(
-                  style: FontEnchantments.text.copyWith(fontSize: 16.0),
+                  style: FontEnchantments.text.copyWith(fontSize: 16),
                   children: <TextSpan>[
                     const TextSpan(text: '"'),
                     TextSpan(
                         text: name,
                         style: FontEnchantments.text.copyWith(
-                            decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16.0)),
+                            decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16)),
                     const TextSpan(text: '" '),
                   ],
                 ),
@@ -95,13 +95,13 @@ class _Attribution extends StatelessWidget {
               child: RichText(
                 maxLines: 1,
                 text: TextSpan(
-                  style: FontEnchantments.text.copyWith(fontSize: 16.0),
+                  style: FontEnchantments.text.copyWith(fontSize: 16),
                   children: <TextSpan>[
                     const TextSpan(text: 'by '),
                     TextSpan(
                         text: author,
                         style: FontEnchantments.text.copyWith(
-                            decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16.0)),
+                            decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16)),
                     const TextSpan(text: ' '),
                   ],
                 ),
@@ -113,21 +113,20 @@ class _Attribution extends StatelessWidget {
               child: RichText(
                 maxLines: 1,
                 text: TextSpan(
-                  style: FontEnchantments.text.copyWith(fontSize: 16.0),
+                  style: FontEnchantments.text.copyWith(fontSize: 16),
                   children: <TextSpan>[
                     const TextSpan(text: 'is licensed under '),
                     TextSpan(
                         text: license,
                         style: FontEnchantments.text.copyWith(
-                            decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16.0)),
+                            decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16)),
                   ],
                 ),
               ),
             ),
-            (additional != null)
-                ? Text('$additional',
-                    maxLines: 5, style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.blueGrey[600]))
-                : const SizedBox.shrink(),
+            if (additionalInfo != null)
+              Text(additionalInfo,
+                  maxLines: 5, style: FontEnchantments.text.copyWith(fontSize: 16, color: Colors.blueGrey[600]))
           ],
         ),
       );

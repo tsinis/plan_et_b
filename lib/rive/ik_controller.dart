@@ -36,35 +36,35 @@ class IKController implements FlareController {
     } else if (detecting) {
       // Otherwise if user clicked/tapped run Detect animation.
       _detectTime += elapsed;
-      _detect?.apply(_detectTime, artboard, 1.0);
+      _detect?.apply(_detectTime, artboard, 1);
     }
 
     _animationTime += elapsed; // Track main Game animation time.
 
     // Run background animation in loop.
-    _backgroundLoop?.apply(_animationTime % _backgroundLoop.duration, artboard, 1.0);
+    _backgroundLoop?.apply(_animationTime % _backgroundLoop.duration, artboard, 1);
 
     // Track pointer position it exists.
     if (_ikTarget == null || _aimPosition == null || _viewTransform == null) {
       return false;
     }
 
-    Mat2D inverseViewTransform = Mat2D();
+    final Mat2D inverseViewTransform = Mat2D();
     if (!Mat2D.invert(inverseViewTransform, _viewTransform)) {
       return true;
     }
 
     // Store pointer position.
-    Vec2D worldTouch = Vec2D();
+    final Vec2D worldTouch = Vec2D();
     Vec2D.transformMat2D(worldTouch, Vec2D.fromValues(_aimPosition.dx, _aimPosition.dy), inverseViewTransform);
 
     // Convert pointer position, so we can use it in animation.
-    Mat2D inverseTargetWorld = Mat2D();
+    final Mat2D inverseTargetWorld = Mat2D();
     if (!Mat2D.invert(inverseTargetWorld, _ikTarget.parent.worldTransform)) {
       return true;
     }
 
-    Vec2D localTouchCoordinates = Vec2D();
+    final Vec2D localTouchCoordinates = Vec2D();
     Vec2D.transformMat2D(localTouchCoordinates ?? Vec2D.fromValues(0, 0), worldTouch, inverseTargetWorld);
 
     // Apply converted coordinates to animation, to both HUD and main Game animations.

@@ -19,7 +19,8 @@ class CyberButton extends StatelessWidget {
     switch (text) {
       case 'Play': // If we are at the main menu, then start the game.
         {
-          Navigator.push(context, CupertinoPageRoute<Route>(fullscreenDialog: true, builder: (_) => const Game()));
+          Navigator.pushReplacement(
+              context, CupertinoPageRoute<Route>(fullscreenDialog: true, builder: (_) => const Game()));
         }
         break;
       case 'Back': // If we are at the About dialog, then just return to main menu.
@@ -40,22 +41,23 @@ class CyberButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => InkWell(
-      enableFeedback: false,
-      autofocus: true, // So we can just press the button with a Space-bar for example.
-      splashColor: Colors.transparent, // Buggy at web ATM.
-      child: Material(
-        clipBehavior: Clip.antiAlias,
-        color: Colors.black38,
-        shape: const BeveledRectangleBorder(
-            // Futuristic look.
-            side: BorderSide(color: Colors.cyanAccent),
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), bottomRight: Radius.circular(15.0))),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 15.0, bottom: 15.0, left: 40.0, right: 42.0),
-          child: Text(text,
-              style: FontEnchantments.displayClean.copyWith(fontSize: 14, color: Colors.white70),
-              textAlign: TextAlign.center),
+        enableFeedback: false,
+        autofocus: true, // So we can just press the button with a Space-bar for example.
+        splashColor: Colors.transparent, // Buggy at web ATM.
+        onTap: () => _pressButton(context),
+        child: Material(
+          clipBehavior: Clip.antiAlias,
+          color: Colors.black38,
+          shape: const BeveledRectangleBorder(
+              // Futuristic look.
+              side: BorderSide(color: Colors.cyanAccent),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomRight: Radius.circular(15))),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 12, bottom: 12, left: 40, right: 42),
+            child: Text(text,
+                style: FontEnchantments.displayClean.copyWith(fontSize: 14, color: Colors.white70),
+                textAlign: TextAlign.center),
+          ),
         ),
-      ),
-      onTap: () => _pressButton(context));
+      );
 }

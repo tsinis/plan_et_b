@@ -16,13 +16,13 @@ class CyberDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        scrollable: _about, // If it's About dialog, then scroll it (there is a lot of info), if Score - don't scroll.
+        scrollable: true,
         shape: const BeveledRectangleBorder(
             // Futuristic shape with "cut-out" corners.
             side: BorderSide(color: Colors.blueGrey),
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), bottomRight: Radius.circular(20.0))),
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(40), bottomRight: Radius.circular(20))),
         contentTextStyle: FontEnchantments.text,
-        titleTextStyle: FontEnchantments.displayClean.copyWith(fontSize: 26.0, letterSpacing: 4.0),
+        titleTextStyle: FontEnchantments.displayClean.copyWith(fontSize: 26, letterSpacing: 4),
         backgroundColor: _about ? Colors.black87 : const Color(0x40032331),
         title: Text(_about ? 'About' : 'Final Score', textAlign: TextAlign.center),
         content: _about ? const _AboutContent() : _ScoreContent(finalScore),
@@ -41,8 +41,8 @@ class _ScoreContent extends StatelessWidget {
       : 'You have checked $_finalScore/12 planets but,\n\n';
 
   String get _planetBText => (_finalScore > 11)
-      ? "there is no planet B!\nSo let's take care of this one.\n\n"
-      : "didn't find a Planet B suitable for life.\nTry once more.\n\n";
+      ? "there is no planet B!\nSo let's take care of this one.\n"
+      : "didn't find a Planet B suitable for life.\nTry once more.\n";
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
@@ -85,15 +85,15 @@ class _AboutContent extends StatelessWidget {
             child: RichText(
               maxLines: 10,
               text: TextSpan(
-                style: FontEnchantments.text.copyWith(fontSize: 16.0),
+                style: FontEnchantments.text.copyWith(fontSize: 16),
                 children: <TextSpan>[
                   const TextSpan(
                       text:
                           'This is the updated version of my award-winning project, in the Official international Flutter Community Hackaton called "#Hack20". '),
                   TextSpan(
                       text: 'More info and the code, can be found here.',
-                      style: FontEnchantments.text.copyWith(
-                          decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16.0)),
+                      style: FontEnchantments.text
+                          .copyWith(decoration: TextDecoration.underline, color: Colors.lightBlueAccent, fontSize: 16)),
                 ],
               ),
             ),
@@ -101,14 +101,14 @@ class _AboutContent extends StatelessWidget {
           const SizedBox(height: 30),
           Center(
             child: Text('Attributions',
-                maxLines: 1, style: FontEnchantments.displayClean.copyWith(fontSize: 18.0, color: Colors.cyanAccent)),
+                maxLines: 1, style: FontEnchantments.displayClean.copyWith(fontSize: 18, color: Colors.cyanAccent)),
           ),
           Center(
             child: Text('Assets used in this project (with CC 3.0 licenses) are:',
-                maxLines: 4, style: FontEnchantments.text.copyWith(fontSize: 16.0, color: Colors.blueGrey[300])),
+                maxLines: 4, style: FontEnchantments.text.copyWith(fontSize: 16, color: Colors.blueGrey[300])),
           ),
           ...attributions, // Show List of all attributions here.
-          const Center(child: Padding(padding: EdgeInsets.all(10.0), child: CyberButton()))
+          const Center(child: Padding(padding: EdgeInsets.all(10), child: CyberButton()))
         ],
       );
 }

@@ -11,7 +11,7 @@
             "name": "Skia Chrome",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
+            "flutterMode": "release",
             "args": [
                 "--dart-define=FLUTTER_WEB_USE_SKIA=true",
                 "--dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true"
