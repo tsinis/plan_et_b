@@ -13,8 +13,6 @@ Your mission is to, **fly around the space and determine a planet's suitability 
 
 ***[Gameplay on YouTube](https://youtu.be/_hoEp9jGoLc)***
 
-https://youtu.be/_hoEp9jGoLc
-
 # Important! BEFORE YOU START:
 This project in form of PWA **will only run on most recent browsers, with Chromium engine v83.0.4+ or newer. Also i have tested it on Firefox v77+**, so it might be OK too. Don't even try to run it on Safari, IE etc, they can't handle it.
 
